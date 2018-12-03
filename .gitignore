@@ -24,9 +24,6 @@ coverage/
 www/
 tmp/
 temp/
-platforms/
-plugins/android.json
-plugins/ios.json
 $RECYCLE.BIN/
 
 .DS_Store
