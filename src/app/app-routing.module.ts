@@ -4,6 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'movies', loadChildren: './movies/movies.module#MoviesPageModule' },
+  { path: 'football', loadChildren: './football/football.module#FootballPageModule' },
+  { path: 'nightlife', loadChildren: './nightlife/nightlife.module#NightlifePageModule' },
+  { path: 'musicordance', loadChildren: './musicordance/musicordance.module#MusicordancePageModule' },
+  { path: 'religious', loadChildren: './religious/religious.module#ReligiousPageModule' },
+  { path: 'nationalfest', loadChildren: './nationalfest/nationalfest.module#NationalfestPageModule' },
+  { path: 'sales', loadChildren: './sales/sales.module#SalesPageModule' },
+  { path: 'thromde', loadChildren: './thromde/thromde.module#ThromdePageModule' },
+  { path: 'others', loadChildren: './others/others.module#OthersPageModule' },
 ];
 
 @NgModule({

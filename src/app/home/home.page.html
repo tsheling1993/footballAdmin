@@ -1,43 +1,80 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Thimphu Events
+      <b style="color:white;">Thimphu Events</b>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-<<<<<<< HEAD
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-label>Clock Tower</ion-label>
-      </ion-col>
-      <ion-col size="6">
-        <ion-label>Changlimithang Stadium</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-label>Night Life</ion-label>
-      </ion-col>
-      <ion-col size="6">
-        <ion-label>Sports</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-label>Music</ion-label>
-      </ion-col>
-      <ion-col size="6">
-        <ion-label>Movies</ion-label>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-=======
-  The world is your oyster. this is my first commmit
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
-   <p>Is it coming?</p>
-  <!-- just a comment -->
->>>>>>> origin/master
+<ion-content no-padding style="text-align: center;">
+  <ion-tabs>
+      <ion-tab tab="hello">
+          <ion-grid text-wrap no-padding >
+              <ion-row class="row">
+                <ion-col class="col" size="4">
+                    <img src="assets/img/movies.jpg" height="130%" width="110%">
+                </ion-col>
+                <ion-col class="col" size="4" >
+                    <img src="assets/img/football.jpg" height="130%" width="110%">
+                </ion-col>
+                <ion-col class="col" size="4">
+                    <img src="assets/img/nightlife.jpg" height="130%" width="110%">
+                </ion-col>
+              </ion-row>
+              <ion-row class="label">
+                <ion-col>Movies</ion-col>
+                <ion-col>Football</ion-col>
+                <ion-col>Night Life</ion-col>
+               </ion-row>
+              <ion-row class="row">
+                  <ion-col class="col" size="4">
+                      <img src="assets/img/music_dance.jpg" height="130%" width="110%">
+                    
+                  </ion-col>
+                  <ion-col class="col" size="4">
+                      <img src="assets/img/religious.jpg" height="130%" width="110%">
+                    
+                  </ion-col>
+                  <ion-col class="col" size="4">
+                      <img src="assets/img/festival.jpg" height="130%" width="110%">
+                     
+                    </ion-col>
+                </ion-row>
+                <ion-row class="label">
+                  <ion-col>Music/Dance</ion-col>
+                  <ion-col>Religious</ion-col>
+                  <ion-col>National Fest</ion-col>
+                 </ion-row>
+                <ion-row class="row">
+                    <ion-col class="col" size="4">
+                        <img src="assets/img/sales.jpg" height="130%" width="110%">
+                      
+                    </ion-col>
+                    <ion-col class="col" size="4">
+                        <img src="assets/img/thromde.jpg" height="130%" width="110%">
+                      
+                    </ion-col>
+                    <ion-col class="col" size="4">
+                       
+                      </ion-col>
+                  </ion-row>
+                  <ion-row class="label">
+                    <ion-col>Special Sales/Buy</ion-col>
+                    <ion-col>Thromde Services</ion-col>
+                    <ion-col>Others</ion-col>
+                   </ion-row>
+            </ion-grid>
+      </ion-tab>
+      <ion-tab tab="world">World</ion-tab>
+      <ion-tab-bar slot="top">
+          <ion-tab-button tab="hello">
+            <ion-label style="font-size: 12pt;">All Events</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="world">
+            <ion-label style="font-size: 12pt;">Favorites</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+  </ion-tabs>
+ 
+ 
 </ion-content>
