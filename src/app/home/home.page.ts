@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,54 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  constructor(
+    private navCtrl: NavController
+  )
+  {
+
+  }
+  goMovies()
+  {
+    this.navCtrl.navigateForward('/movies');
+  }
+
+  goFootball()
+  {
+    this.navCtrl.navigateForward('/football');
+  }
+  
+  goNightLife()
+  {
+    this.navCtrl.navigateForward('/nightlife');
+  }
+
+  goMusicOrDance()
+  {
+    this.navCtrl.navigateForward('/musicordance');
+  }
+
+  goReligious()
+  {
+    this.navCtrl.navigateForward('/religious');
+  }
+
+  goNatFest()
+  {
+    this.navCtrl.navigateForward('/nationalfest');
+  }
+
+  goSales()
+  {
+    this.navCtrl.navigateForward('/sales');
+  }
+
+  goThromde()
+  {
+    this.navCtrl.navigateForward('/thromde');
+  }
+
+  goOthers()
+  {
+    this.navCtrl.navigateForward('/others');
+  }
 }

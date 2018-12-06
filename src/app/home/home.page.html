@@ -11,13 +11,13 @@
       <ion-tab tab="hello">
           <ion-grid text-wrap no-padding >
               <ion-row class="row">
-                <ion-col class="col" size="4">
+                <ion-col (click)="goMovies()" class="col" size="4">
                     <img src="assets/img/movies.jpg" height="130%" width="110%">
                 </ion-col>
-                <ion-col class="col" size="4" >
+                <ion-col (click)="goFootball()" class="col" size="4" >
                     <img src="assets/img/football.jpg" height="130%" width="110%">
                 </ion-col>
-                <ion-col class="col" size="4">
+                <ion-col (click)="goNightLife()" class="col" size="4">
                     <img src="assets/img/nightlife.jpg" height="130%" width="110%">
                 </ion-col>
               </ion-row>
@@ -27,15 +27,15 @@
                 <ion-col>Night Life</ion-col>
                </ion-row>
               <ion-row class="row">
-                  <ion-col class="col" size="4">
+                  <ion-col (click)="goMusicOrDance()" class="col" size="4">
                       <img src="assets/img/music_dance.jpg" height="130%" width="110%">
                     
                   </ion-col>
-                  <ion-col class="col" size="4">
+                  <ion-col (click)="goReligious()" class="col" size="4">
                       <img src="assets/img/religious.jpg" height="130%" width="110%">
                     
                   </ion-col>
-                  <ion-col class="col" size="4">
+                  <ion-col (click)="goNatFest()" class="col" size="4">
                       <img src="assets/img/festival.jpg" height="130%" width="110%">
                      
                     </ion-col>
@@ -45,16 +45,16 @@
                   <ion-col>Religious</ion-col>
                   <ion-col>National Fest</ion-col>
                  </ion-row>
-                <ion-row class="row">
+                <ion-row (click)="goSales()" class="row">
                     <ion-col class="col" size="4">
                         <img src="assets/img/sales.jpg" height="130%" width="110%">
                       
                     </ion-col>
-                    <ion-col class="col" size="4">
+                    <ion-col (click)="goThromde()" class="col" size="4">
                         <img src="assets/img/thromde.jpg" height="130%" width="110%">
                       
                     </ion-col>
-                    <ion-col class="col" size="4">
+                    <ion-col (click)="goOthers()" class="col" size="4">
                        
                       </ion-col>
                   </ion-row>
@@ -71,7 +71,7 @@
             <ion-label style="font-size: 12pt;">All Events</ion-label>
           </ion-tab-button>
           <ion-tab-button tab="world">
-            <ion-label style="font-size: 12pt;">Favorites</ion-label>
+            <ion-label style="font-size: 12pt;">Favourites</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
   </ion-tabs>

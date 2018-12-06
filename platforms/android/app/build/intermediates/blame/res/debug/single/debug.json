@@ -92,12 +92,12 @@
         "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/fcbaadad2c12250ed4d7f322e65e5c9d/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
-        "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/layout/notification_template_part_chronometer.xml"
-    },
-    {
         "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat",
         "source": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/src/main/res/drawable-land-xxhdpi/screen.png"
+    },
+    {
+        "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
@@ -160,12 +160,12 @@
         "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/drawable/notification_bg.xml"
     },
     {
-        "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
         "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
         "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/home/kinleydorji/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4ccf425f2602433bc57df2043e3d0dbc/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
