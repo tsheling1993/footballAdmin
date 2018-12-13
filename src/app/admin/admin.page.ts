@@ -17,10 +17,11 @@ export class AdminPage implements OnInit {
   moviePrice : any;
   movieContact : any;
   movieTailor : any;
-  start : any;
+  date : any;
   movieData:any[]=[];
   title:any;
   desc:any;
+  showmovies : boolean = false;
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
@@ -88,8 +89,25 @@ export class AdminPage implements OnInit {
       mode: 'date',
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
-      date => console.log('Got date: ', date),
+      date => 
+      //console.log('Got date: ', date),
+      this.startDate = date,
       err => console.log('Error occurred while getting date: ', err)
     );
+  }
+  pickEndDate(){
+    this.datePicker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+    }).then(
+      date => 
+      this.endDate = date,
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+
+  movies(){
+    this.showmovies = true;
   }
 }
