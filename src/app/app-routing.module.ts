@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'sales', loadChildren: './sales/sales.module#SalesPageModule' },
   { path: 'thromde', loadChildren: './thromde/thromde.module#ThromdePageModule' },
   { path: 'others', loadChildren: './others/others.module#OthersPageModule' },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
 ];
 
 @NgModule({

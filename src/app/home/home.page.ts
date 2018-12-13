@@ -58,4 +58,8 @@ export class HomePage {
   {
     this.navCtrl.navigateForward('/others');
   }
+  admin()
+  {
+   this.navCtrl.navigateForward('/admin');
+  }
 }
