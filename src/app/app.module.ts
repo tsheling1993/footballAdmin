@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { DatePicker } from '@ionic-native/date-picker/ngx';
 const config={
   apiKey: "AIzaSyA4Lp4OYSekcXStv6OYK3_Usua82Pojr_8",
     authDomain: "thimphu-events.firebaseapp.com",
@@ -26,6 +28,8 @@ const config={
     StatusBar,
     SplashScreen,
     Firebase,
+    InAppBrowser,
+    DatePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

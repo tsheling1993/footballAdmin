@@ -1,10 +1,13 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      <b style="color:white;">Thimphu Events</b>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header >
+    <ion-toolbar color="primary">
+      <ion-buttons>
+      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <ion-back-button style="color:white;"></ion-back-button>
+      <ion-title id="title" style="color:white;"><b>ThimphuEvent</b></ion-title>
+      <ion-button (click)="admin()"><p class="help" style="color:white;"><b>admin</b></p></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content no-padding style="text-align: center;">
   <ion-tabs>
@@ -75,6 +78,4 @@
           </ion-tab-button>
         </ion-tab-bar>
   </ion-tabs>
- 
- 
 </ion-content>
