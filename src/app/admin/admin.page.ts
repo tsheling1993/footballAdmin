@@ -110,4 +110,8 @@ export class AdminPage implements OnInit {
   movies(){
     this.showmovies = true;
   }
+
+  religion(){
+    this.navCtl.navigateForward('/religionAdmin');
+  }
 }
