@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { UploadpicService } from '../../services/uploadpic/uploadpic.service';
+import { Upload } from '../../models/upload/upload';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-admin',
@@ -21,12 +24,15 @@ export class AdminPage implements OnInit {
   movieData:any[]=[];
   title:any;
   desc:any;
+  selectedFiles: FileList;
+  currentUpload: Upload;
   showmovies : boolean = false;
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    private uploadServ: UploadpicService
   )
   {
     //for retriving the data
@@ -43,11 +49,31 @@ export class AdminPage implements OnInit {
     //   console.log(this.movieData);
   }
 
+  detectFiles(event:any){
+    this.selectedFiles = event.target.files;
+  }
   ngOnInit() {
   }
+  // uploadSingle() {
+  //   let file = this.selectedFiles.item(0)
+  //   this.currentUpload = new Upload(file);
+  //   this.uploadServ.pushUpload(this.currentUpload)
+  // }
+
+  // uploadMulti() {
+  //   let files = this.selectedFiles
+  //   let filesIndex = _.range(files.length)
+  //   _.each(filesIndex, (idx) => {
+  //     this.currentUpload = new Upload(files[idx]);
+  //     this.uploadServ.pushUpload(this.currentUpload)}
+  //   )
+  // }
   //for uploading the the data
   insertFs(){
-    this.fs.collection('/movies').add(
+    let basePath:string="/movies";
+    let file = this.selectedFiles.item(0)
+    this.currentUpload = new Upload(file);
+    this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).set(
       {
       movietitle : this.movieTitle,
       venue : this.movieVenue,
@@ -63,8 +89,11 @@ export class AdminPage implements OnInit {
         console.log("reach here with data: "+data);
           this.alert("For Information","Insertion successful");
           this.navCtl.navigateForward('/movies');
+        console.log(data);
+        this.uploadServ.pushUpload(this.currentUpload,basePath,this.movieTitle);
       }
       )
+      
   }
 
   async alert(header:string,message:string)

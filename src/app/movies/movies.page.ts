@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, List } from '@ionic/angular';
 import { map } from 'rxjs/operators';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
@@ -18,7 +18,8 @@ export class MoviesPage implements OnInit {
   moviePrice : any;
   movieContact : any;
   movieTailor : any;
-  movieData:any[]=[];
+  movie:any[]=[];
+  movieList: Array<any[]>;
   title:any;
   desc:any;
   constructor
@@ -33,7 +34,7 @@ export class MoviesPage implements OnInit {
     {
       res.forEach((doc:any)=>
     {
-      this.movieData.push({
+      this.movie.push({
         movietitle:doc.data().movietitle,
         venue:doc.data().venue,
         time : doc.data().time,
@@ -41,11 +42,13 @@ export class MoviesPage implements OnInit {
         enddate : doc.data().enddate,
         price : doc.data().price,
         contact : doc.data().contact,
-        tailor : doc.data().tailor
+        tailor : doc.data().tailor,
+        url: doc.data().url
       })
+      // this.movieList.push(this.movie);
     });
     })
-    console.log(this.movieData);
+    console.log(this.movie);
   }
   
   ngOnInit() {
