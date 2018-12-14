@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { UploadpicService } from '../services/uploadpic/uploadpic.service';
 const config={
   apiKey: "AIzaSyA4Lp4OYSekcXStv6OYK3_Usua82Pojr_8",
     authDomain: "thimphu-events.firebaseapp.com",
@@ -23,6 +25,7 @@ const config={
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+  AngularFireStorageModule,
   AngularFireModule.initializeApp(config),AngularFirestoreModule],
   providers: [
     StatusBar,
@@ -30,6 +33,7 @@ const config={
     Firebase,
     InAppBrowser,
     DatePicker,
+    UploadpicService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
