@@ -1,14 +1,64 @@
 <ion-header >
-  <ion-toolbar color="primary">
+  <ion-toolbar color="secondary">
     <ion-buttons>
-    <ion-button (click)="openMenu()"><ion-icon name="menu"></ion-icon></ion-button>
-    <ion-back-button></ion-back-button>
-    <ion-title id="title">Admin</ion-title>
+    <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+    <ion-back-button style="color:white;"></ion-back-button>
+    <ion-title id="title" style="color:white;">Admin</ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-button expand="full" color="primary" (click)="movies()">movieAdmin</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <ion-button expand="full" color="primary" (click)="football()">footballAdmin</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <ion-button expand="full" color="primary" (click)="nightlife()">NightlifeAdmin</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="music()">musicAdmin</ion-button>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="religion()">religionAdmin</ion-button>
+          </ion-col>
+      </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="nationalfest()">nationalfestAdmin</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="special()">specialAdmin</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="thromde()">thromdeAdmin</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="others()">othersAdmin</ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  
+  <!-- for inserting movie details -->
+  <div *ngIf="showmovies">
   <ion-grid>
     <ion-row>
       <ion-col size="4">
@@ -23,7 +73,7 @@
         <ion-label>Venue:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" placeholder="movie title" class="m-style" [(ngModel)]="movieVenue"></ion-input>
+          <ion-input type="text" placeholder="venue" class="m-style" [(ngModel)]="movieVenue"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -31,7 +81,7 @@
         <ion-label>Time:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" placeholder="movie title" class="m-style" [(ngModel)]="movieTime"></ion-input>
+          <ion-input type="text" placeholder="time" class="m-style" [(ngModel)]="movieTime"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -39,7 +89,7 @@
         <ion-label>Start Date:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" button=true, (click)="pickDate()" class="m-style" [(ngModel)]="startDate"></ion-input>
+          <ion-input type="text" button=true, placeholder="Start Date" value={{Date}} (click)="pickDate()" class="m-style" [(ngModel)]="startDate"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -47,7 +97,7 @@
         <ion-label>End Date:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" (click)="pickDate()" button=true, class="m-style" [(ngModel)]="endDate"></ion-input>
+          <ion-input type="text" placeholder="End Date" value={{date}} (click)="pickEndDate()" button=true, class="m-style" [(ngModel)]="endDate"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -55,7 +105,7 @@
         <ion-label>Price:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" placeholder="movie title" class="m-style" [(ngModel)]="moviePrice"></ion-input>
+          <ion-input type="text" placeholder="price" class="m-style" [(ngModel)]="moviePrice"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -63,7 +113,7 @@
         <ion-label>Contact:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" placeholder="movie title" class="m-style" [(ngModel)]="movieContact"></ion-input>
+          <ion-input type="text" placeholder="contact" class="m-style" [(ngModel)]="movieContact"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -76,10 +126,10 @@
     </ion-row>
     <ion-row>
       <ion-col size="4">
-        <ion-label>Tailor Link:</ion-label>
+        <ion-label>Trailer Link:</ion-label>
       </ion-col>
       <ion-col size="8">
-          <ion-input type="text" placeholder="movie title" class="m-style" [(ngModel)]="movieTailor"></ion-input>
+          <ion-input type="text" placeholder="Trailer" class="m-style" [(ngModel)]="movieTailor"></ion-input>
         </ion-col>
     </ion-row>
     <ion-row>
@@ -119,4 +169,7 @@
   
           Upload Multiple
         </button> -->
+    </ion-row>
+  </ion-grid>
+</div>
 </ion-content>

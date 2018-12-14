@@ -12,6 +12,7 @@
     <ion-list *ngFor='let data of movie'>
       <ion-item class="stampBox">
         <ion-grid>
+        
         <ion-row>
             <ion-col size="12">
                 <span><b>Movie Title:&nbsp;</b>{{data.movietitle}}</span><br><br>
@@ -22,8 +23,8 @@
           <ion-col size="12">
               <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
               <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
-              <span><b>StartDate:&nbsp;</b>{{data.startdate}}</span><br>
-              <span><b>EndDate:&nbsp;</b>{{data.enddate}}</span><br>
+              <span><b>StartDate:&nbsp;</b>{{data.startdate.toDate() | date:"mediumDate"}}</span><br>
+              <span><b>EndDate:&nbsp;</b>{{data.enddate.toDate() | date:"mediumDate"}}</span><br>
               <span><b>Price:&nbsp;</b>{{data.price}}</span><br>
               <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
               <span><b>Trailer:&nbsp;</b><span button=true, style="color:blue" (click)="tailorLink(data.tailor)">{{data.tailor}}</span></span><br>
