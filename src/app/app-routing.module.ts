@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'thromde', loadChildren: './thromde/thromde.module#ThromdePageModule' },
   { path: 'others', loadChildren: './others/others.module#OthersPageModule' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
+  { path: 'religionAdmin', loadChildren: './religion-admin/religion-admin.module#ReligionAdminPageModule' },
 ];
 
 @NgModule({
