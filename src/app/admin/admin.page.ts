@@ -60,28 +60,24 @@ export class AdminPage implements OnInit {
     }
     ).then(data=>
       {
-        console.log(data);
+        console.log("reach here with data: "+data);
+          this.alert("For Information","Insertion successful");
+          this.navCtl.navigateForward('/movies');
       }
       )
   }
-  async alert(header : any, message : any)
+
+  async alert(header:string,message:string)
   {
-    this.altCtl.create(
-      {
-        header : header, 
-        message : message,
-        buttons:[
-          {
-            text : 'okay',
-            handler:()=>
-            {
-              this.navCtl.navigateForward('/home');
-            }
-          }
-        ]
-      }
-    )
+    const alert=await this.altCtl.create({
+      header:header,
+      message: message,
+      cssClass:'ok',
+      buttons:['OK']
+    });
+    alert.present();
   }
+
 
   pickDate(){
     this.datePicker.show({
@@ -110,8 +106,29 @@ export class AdminPage implements OnInit {
   movies(){
     this.showmovies = true;
   }
-
+  football(){
+    this.showmovies = false;
+  }
+  nightlife(){
+    this.showmovies = false;
+  }
+  music(){
+    this.showmovies = false;
+  }
   religion(){
     this.navCtl.navigateForward('/religionAdmin');
+  }
+  nationalfest(){
+    this.showmovies = false;
+    this.navCtl.navigateForward('/festivalAdmin');
+  }
+  special(){
+    this.showmovies = false;
+  }
+  thromde(){
+    this.showmovies = false;
+  }
+  others(){
+    this.showmovies = false;
   }
 }

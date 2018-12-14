@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'others', loadChildren: './others/others.module#OthersPageModule' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
   { path: 'religionAdmin', loadChildren: './religion-admin/religion-admin.module#ReligionAdminPageModule' },
+  { path: 'festivalAdmin', loadChildren: './festival-admin/festival-admin.module#FestivalAdminPageModule' },
 ];
 
 @NgModule({
