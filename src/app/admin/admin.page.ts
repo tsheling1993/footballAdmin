@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { UploadpicService } from '../../services/uploadpic/uploadpic.service';
+import { Upload } from '../../models/upload/upload';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-admin',
@@ -21,12 +24,15 @@ export class AdminPage implements OnInit {
   movieData:any[]=[];
   title:any;
   desc:any;
+  selectedFiles: FileList;
+  currentUpload: Upload;
   showmovies : boolean = false;
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    private uploadServ: UploadpicService
   )
   {
     //for retriving the data
@@ -43,11 +49,31 @@ export class AdminPage implements OnInit {
     //   console.log(this.movieData);
   }
 
+  detectFiles(event:any){
+    this.selectedFiles = event.target.files;
+  }
   ngOnInit() {
   }
+  // uploadSingle() {
+  //   let file = this.selectedFiles.item(0)
+  //   this.currentUpload = new Upload(file);
+  //   this.uploadServ.pushUpload(this.currentUpload)
+  // }
+
+  // uploadMulti() {
+  //   let files = this.selectedFiles
+  //   let filesIndex = _.range(files.length)
+  //   _.each(filesIndex, (idx) => {
+  //     this.currentUpload = new Upload(files[idx]);
+  //     this.uploadServ.pushUpload(this.currentUpload)}
+  //   )
+  // }
   //for uploading the the data
   insertFs(){
-    this.fs.collection('/movies').add(
+    let basePath:string="/movies";
+    let file = this.selectedFiles.item(0)
+    this.currentUpload = new Upload(file);
+    this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).set(
       {
       movietitle : this.movieTitle,
       venue : this.movieVenue,
@@ -60,28 +86,27 @@ export class AdminPage implements OnInit {
     }
     ).then(data=>
       {
+        console.log("reach here with data: "+data);
+          this.alert("For Information","Insertion successful");
+          this.navCtl.navigateForward('/movies');
         console.log(data);
+        this.uploadServ.pushUpload(this.currentUpload,basePath,this.movieTitle);
       }
       )
+      
   }
-  async alert(header : any, message : any)
+
+  async alert(header:string,message:string)
   {
-    this.altCtl.create(
-      {
-        header : header, 
-        message : message,
-        buttons:[
-          {
-            text : 'okay',
-            handler:()=>
-            {
-              this.navCtl.navigateForward('/home');
-            }
-          }
-        ]
-      }
-    )
+    const alert=await this.altCtl.create({
+      header:header,
+      message: message,
+      cssClass:'ok',
+      buttons:['OK']
+    });
+    alert.present();
   }
+
 
   pickDate(){
     this.datePicker.show({
@@ -89,10 +114,15 @@ export class AdminPage implements OnInit {
       mode: 'date',
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
-      date => 
+      date =>{
+        let dateArray=date.toString().split(' ');
+        this.startDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
+        err => console.log('Error occurred while getting date: ', err)
+      }
+    
       //console.log('Got date: ', date),
-      this.startDate = date,
-      err => console.log('Error occurred while getting date: ', err)
+      
+      
     );
   }
   pickEndDate(){
@@ -102,20 +132,46 @@ export class AdminPage implements OnInit {
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
       date => 
-      this.endDate = date,
-      err => console.log('Error occurred while getting date: ', err)
+      {
+        let dateArray=date.toString().split(' ');
+        this.endDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
+        err => console.log('Error occurred while getting date: ', err)
+      }
+      
     );
   }
 
   movies(){
     this.showmovies = true;
   }
-
+  football(){
+    this.showmovies = false;
+  }
+  nightlife(){
+    this.showmovies = false;
+  }
+  music(){
+    this.navCtl.navigateForward('/entertainmentAdmin');
+    this.showmovies = false;
+  }
   religion(){
     this.navCtl.navigateForward('/religionAdmin');
   }
 
   goFootballAdmin(){
     this.navCtl.navigateForward('/footballAdmin');
+  }
+  nationalfest(){
+    this.showmovies = false;
+    this.navCtl.navigateForward('/festivalAdmin');
+  }
+  special(){
+    this.showmovies = false;
+  }
+  thromde(){
+    this.showmovies = false;
+  }
+  others(){
+    this.showmovies = false;
   }
 }
