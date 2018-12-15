@@ -13,7 +13,7 @@ export class EntertainmentAdminPage implements OnInit {
   rVenue : any;
   rTime : any;
   rDate : any;
-  rContract : any;
+  rContact : any;
   rLink : any;
   date : any;
   constructor(
@@ -34,7 +34,7 @@ export class EntertainmentAdminPage implements OnInit {
         venue : this.rVenue,
         time : this.rTime,
         date : this.rDate,
-        contract : this.rContract,
+        contract : this.rContact,
         link : this.rLink
       }
     ).then(data=>
@@ -73,7 +73,8 @@ export class EntertainmentAdminPage implements OnInit {
     this.datePicker.show({
       date: new Date(),
       mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+      //androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+      androidTheme : this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
     }).then(
       date => 
       //console.log('Got date: ', date),

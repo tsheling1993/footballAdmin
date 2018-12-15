@@ -32,7 +32,7 @@ export class MusicordancePage implements OnInit {
             title : doc.data().title,
             venue : doc.data().venue,
             time : doc.data().time,
-            date : doc.date().date,
+            date : doc.data().date,
             contact : doc.data().contact,
             link : doc.data().link,
           })

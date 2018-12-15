@@ -114,10 +114,15 @@ export class AdminPage implements OnInit {
       mode: 'date',
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
-      date => 
+      date =>{
+        let dateArray=date.toString().split(' ');
+        this.startDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
+        err => console.log('Error occurred while getting date: ', err)
+      }
+    
       //console.log('Got date: ', date),
-      this.startDate = date,
-      err => console.log('Error occurred while getting date: ', err)
+      
+      
     );
   }
   pickEndDate(){
@@ -127,8 +132,12 @@ export class AdminPage implements OnInit {
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
       date => 
-      this.endDate = date,
-      err => console.log('Error occurred while getting date: ', err)
+      {
+        let dateArray=date.toString().split(' ');
+        this.endDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
+        err => console.log('Error occurred while getting date: ', err)
+      }
+      
     );
   }
 
