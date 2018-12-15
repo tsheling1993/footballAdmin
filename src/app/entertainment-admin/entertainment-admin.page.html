@@ -1,9 +1,73 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>entertainmentAdmin</ion-title>
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+    <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+    <ion-back-button style="color:white;"></ion-back-button>
+    <ion-title id="title" style="color:white;">EntertainmentAdmin</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+<!-- for inserting Entertainment details -->
+<ion-grid>
+    <ion-row>
+        <ion-col size="4">
+          Title:
+        </ion-col>
+        <ion-col size="8">
+            <ion-input type="text" placeholder="religious title" class="m-style" [(ngModel)]="rTitle"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="4">
+            Venue:
+          </ion-col>
+          <ion-col size="8">
+              <ion-input type="text" placeholder="venue" class="m-style" [(ngModel)]="rVenue"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+            Time:
+            </ion-col>
+            <ion-col size="8">
+                <ion-input type="text" placeholder="time" class="m-style" [(ngModel)]="rTime"></ion-input>
+              </ion-col>
+          </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        Date:
+      </ion-col>
+      <ion-col size="8">
+        <ion-input type="text" button=true, placeholder="Start Date" value={{Date}} (click)="pickDate()" class="m-style" [(ngModel)]="rDate"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="4">
+        contact:
+        </ion-col>
+        <ion-col size="8">
+            <ion-input type="text" placeholder="time" class="m-style" [(ngModel)]="rContact"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="4">
+          link:
+          </ion-col>
+          <ion-col size="8">
+              <ion-input type="text" placeholder="time" class="m-style" [(ngModel)]="rLink"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-button color="secondary" expand="full">upload programList</ion-button>
+          </ion-col>
+        </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button color="secondary" expand="full" (click)="insertFs()">upload</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

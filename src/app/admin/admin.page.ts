@@ -142,6 +142,7 @@ export class AdminPage implements OnInit {
     this.showmovies = false;
   }
   music(){
+    this.navCtl.navigateForward('/entertainmentAdmin');
     this.showmovies = false;
   }
   religion(){
