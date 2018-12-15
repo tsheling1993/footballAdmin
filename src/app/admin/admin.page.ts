@@ -114,4 +114,8 @@ export class AdminPage implements OnInit {
   religion(){
     this.navCtl.navigateForward('/religionAdmin');
   }
+
+  goFootballAdmin(){
+    this.navCtl.navigateForward('/footballAdmin');
+  }
 }
