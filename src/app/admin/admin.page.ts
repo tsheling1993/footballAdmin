@@ -165,8 +165,9 @@ export class AdminPage implements OnInit {
     this.showmovies = false;
     this.navCtl.navigateForward('/festivalAdmin');
   }
-  special(){
+  specialSale(){
     this.showmovies = false;
+    this.navCtl.navigateForward('/salesAdmin');
   }
   thromde(){
     this.showmovies = false;

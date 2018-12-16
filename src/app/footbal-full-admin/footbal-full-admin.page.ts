@@ -8,20 +8,24 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class FootbalFullAdminPage implements OnInit {
   
-  monday_var: boolean = false;
+  changFootMonData:any[]=[];  
+
+  monday_var: boolean = true;
   
   mon_all: boolean = true;  
-  mon_8to10am: boolean = true;
-  mon_10to12am: boolean = true;
-  mon_12to2pm: boolean = true;
-  mon_2to4pm: boolean = true;
-  mon_4to6pm: boolean = true;
-  mon_6to8pm: boolean = true;
-  mon_8to10pm: boolean = true;
+  mon_8to10am: boolean;
+  mon_10to12am: boolean;
+  mon_12to2pm: boolean;
+  mon_2to4pm: boolean;
+  mon_4to6pm: boolean;
+  mon_6to8pm: boolean;
+  mon_8to10pm: boolean;
 
   constructor(
     private fs : AngularFirestore
-  ) { }
+  ) { 
+    this.loadFromFirestore();
+  }
 
   ngOnInit() {
   }
@@ -166,5 +170,31 @@ export class FootbalFullAdminPage implements OnInit {
         }
         )
     }
+  }
+
+  loadFromFirestore(){
+    this.fs.collection('/football').doc('Changlimithang_Full').collection('/monday').get().subscribe(res=>  
+      {
+        res.forEach((doc:any)=>
+      {
+        this.changFootMonData.push({
+          mon8to10am:doc.data().mon8to10am,
+          mon10to12am:doc.data().mon10to12am,
+          mon12to2pm : doc.data().mon12to2pm,
+          mon2to4pm :doc.data().mon2to4pm,
+          mon4to6pm : doc.data().mon4to6pm,
+          mon6to8pm : doc.data().mon6to8pm,
+          mon8to10pm : doc.data().mon8to10pm
+        })
+        this.mon_8to10am = doc.data().mon8to10am;
+        this.mon_10to12am = doc.data().mon10to12am;
+        this.mon_12to2pm = doc.data().mon12to2pm;
+        this.mon_2to4pm = doc.data().mon2to4pm;
+        this.mon_4to6pm = doc.data().mon4to6pm;
+        this.mon_6to8pm = doc.data().mon6to8pm;
+        this.mon_8to10pm = doc.data().mon8to10pm;
+      });
+      })
+      console.log(this.changFootMonData);
   }
 }
