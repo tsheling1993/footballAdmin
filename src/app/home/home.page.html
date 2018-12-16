@@ -1,5 +1,5 @@
 <ion-header >
-    <ion-toolbar color="primary">
+    <ion-toolbar color="secondary">
       <ion-buttons>
       <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
       <ion-back-button style="color:white;"></ion-back-button>
@@ -15,67 +15,67 @@
           <ion-grid text-wrap no-padding >
               <ion-row class="row">
                 <ion-col (click)="goMovies()" class="col" size="4">
-                    <img src="assets/img/movies2.jpg" height="130%" width="110%">
+                    <img src="assets/img/movies2.jpg" height="100%" width="110%">
                 </ion-col>
                 <ion-col (click)="goFootball()" class="col" size="4" >
-                    <img src="assets/img/football2.jpg" height="130%" width="110%">
+                    <img src="assets/img/football2.jpg" height="100%" width="110%">
                 </ion-col>
                 <ion-col (click)="goNightLife()" class="col" size="4">
-                    <img src="assets/img/nightlife2.jpg" height="130%" width="110%">
+                    <img src="assets/img/nightlife2.jpg" height="100%" width="110%">
                 </ion-col>
               </ion-row>
               <ion-row class="label">
-                <ion-col>Movies</ion-col>
-                <ion-col>Football</ion-col>
-                <ion-col>Night Life</ion-col>
+                <ion-col style="color:#488aff;">Movies</ion-col>
+                <ion-col style="color:#488aff;">Football</ion-col>
+                <ion-col style="color:#488aff;">Night Life</ion-col>
                </ion-row>
               <ion-row class="row">
                   <ion-col (click)="goMusicOrDance()" class="col" size="4">
-                      <img src="assets/img/enter2.jpg" height="130%" width="110%">
+                      <img src="assets/img/enter2.jpg" height="100%" width="110%">
                     
                   </ion-col>
                   <ion-col (click)="goReligious()" class="col" size="4">
-                      <img src="assets/img/religious2.jpg" height="130%" width="110%">
+                      <img src="assets/img/religious2.jpg" height="100%" width="110%">
                     
                   </ion-col>
                   <ion-col (click)="goNatFest()" class="col" size="4">
-                      <img src="assets/img/festival2.jpg" height="130%" width="110%">
+                      <img src="assets/img/festival2.jpg" height="100%" width="110%">
                      
                     </ion-col>
                 </ion-row>
                 <ion-row class="label">
-                  <ion-col>Music/Dance</ion-col>
-                  <ion-col>Religious</ion-col>
-                  <ion-col>National Fest</ion-col>
+                  <ion-col style="color:#488aff;">Entertainment</ion-col>
+                  <ion-col style="color:#488aff;">Religious</ion-col>
+                  <ion-col style="color:#488aff;">Festival</ion-col>
                  </ion-row>
                 <ion-row (click)="goSales()" class="row">
                     <ion-col class="col" size="4">
-                        <img src="assets/img/sales2.jpg" height="130%" width="110%">
+                        <img src="assets/img/sales2.jpg" height="100%" width="110%">
                       
                     </ion-col>
                     <ion-col (click)="goThromde()" class="col" size="4">
-                        <img src="assets/img/thromde2.jpg" height="130%" width="110%">
+                        <img src="assets/img/thromde2.jpg" height="100%" width="110%">
                       
                     </ion-col>
                     <ion-col (click)="goOthers()" class="col" size="4">
-                        <img src="assets/img/others2.jpg" height="130%" width="110%">
+                        <img src="assets/img/others2.jpg" height="100%" width="110%">
                        
                       </ion-col>
                   </ion-row>
                   <ion-row class="label">
-                    <ion-col>Special Sales/Buy</ion-col>
-                    <ion-col>Thromde Services</ion-col>
-                    <ion-col>Others</ion-col>
+                    <ion-col style="color:#488aff;">Special Sales/Buy</ion-col>
+                    <ion-col style="color:#488aff;">Thromde Services</ion-col>
+                    <ion-col style="color:#488aff;">Others</ion-col>
                    </ion-row>
             </ion-grid>
       </ion-tab>
       <ion-tab tab="world">World</ion-tab>
       <ion-tab-bar slot="top">
           <ion-tab-button tab="hello">
-            <ion-label style="font-size: 12pt;">All Events</ion-label>
+            <ion-label style="font-size: 12pt;" color="secondary">All Events</ion-label>
           </ion-tab-button>
           <ion-tab-button tab="world">
-            <ion-label style="font-size: 12pt;">Favourites</ion-label>
+            <ion-label style="font-size: 12pt;" color="secondary">Favourites</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
   </ion-tabs>
