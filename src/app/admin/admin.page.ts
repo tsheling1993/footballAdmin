@@ -114,15 +114,10 @@ export class AdminPage implements OnInit {
       mode: 'date',
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
-      date =>{
-        let dateArray=date.toString().split(' ');
-        this.startDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
-        err => console.log('Error occurred while getting date: ', err)
-      }
-    
+      date => 
       //console.log('Got date: ', date),
-      
-      
+      this.startDate = date,
+      err => console.log('Error occurred while getting date: ', err)
     );
   }
   pickEndDate(){
@@ -132,12 +127,8 @@ export class AdminPage implements OnInit {
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }).then(
       date => 
-      {
-        let dateArray=date.toString().split(' ');
-        this.endDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
-        err => console.log('Error occurred while getting date: ', err)
-      }
-      
+      this.endDate = date,
+      err => console.log('Error occurred while getting date: ', err)
     );
   }
 
@@ -151,7 +142,6 @@ export class AdminPage implements OnInit {
     this.showmovies = false;
   }
   music(){
-    this.navCtl.navigateForward('/entertainmentAdmin');
     this.showmovies = false;
   }
   goRadio(){
@@ -159,10 +149,6 @@ export class AdminPage implements OnInit {
   }
   religion(){
     this.navCtl.navigateForward('/religionAdmin');
-  }
-
-  goFootballAdmin(){
-    this.navCtl.navigateForward('/footballAdmin');
   }
   nationalfest(){
     this.showmovies = false;
