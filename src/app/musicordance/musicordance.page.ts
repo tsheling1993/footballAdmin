@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
-import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @Component({
   selector: 'app-musicordance',
@@ -9,6 +6,7 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
   styleUrls: ['./musicordance.page.scss'],
 })
 export class MusicordancePage implements OnInit {
+<<<<<<< HEAD
   rTitle : any;
   rVenue : any;
   rTime : any;
@@ -63,6 +61,10 @@ export class MusicordancePage implements OnInit {
         })
         console.log(this.eData);
   }
+=======
+
+  constructor() { }
+>>>>>>> c723d98dcb454b8095c1f843a3844df9ef12374b
 
   // loadRadio(){
   //     //for retriving the radio detdail

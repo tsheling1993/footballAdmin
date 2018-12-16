@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FootbalFullAdminPage } from './footbal-full-admin.page';
+import { TrackgarbagetruckPage } from './trackgarbagetruck.page';
 
-describe('FootbalFullAdminPage', () => {
-  let component: FootbalFullAdminPage;
-  let fixture: ComponentFixture<FootbalFullAdminPage>;
+describe('TrackgarbagetruckPage', () => {
+  let component: TrackgarbagetruckPage;
+  let fixture: ComponentFixture<TrackgarbagetruckPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FootbalFullAdminPage ],
+      declarations: [ TrackgarbagetruckPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FootbalFullAdminPage);
+    fixture = TestBed.createComponent(TrackgarbagetruckPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

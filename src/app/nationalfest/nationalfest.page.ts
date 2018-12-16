@@ -21,7 +21,6 @@ export class NationalfestPage implements OnInit {
     private navCtl : NavController,
     private datePicker: DatePicker
   ) { 
-    //for getting the data of festival from the firebase
     this.fs.collection('/t_festival').get().subscribe(res=>
       {
         res.forEach((doc:any)=>
@@ -33,7 +32,7 @@ export class NationalfestPage implements OnInit {
           venue:doc.data().venue,
           detail : doc.data().detail,
         })
-      })
+      });
       })
       console.log(this.rData);
   }

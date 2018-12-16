@@ -1,0 +1,17 @@
+#mapc{
+    border: 2px solid rgba(43, 30, 160, 0.8);
+    border-radius: 2%;
+    width:60%;
+    height:60%;
+  }
+  #mapg{
+    border: 2px solid rgba(43, 30, 160, 0.8);
+    border-radius: 2%;
+    width:60%;
+    height:60%;
+  }
+  .animateAppearDown{
+    animation-name: slideInDown;
+    animation-iteration-count: 0.3s;
+    animation-duration: 0.5s;
+}
