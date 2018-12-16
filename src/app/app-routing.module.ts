@@ -19,6 +19,9 @@ const routes: Routes = [
   { path: 'entertainmentAdmin', loadChildren: './entertainment-admin/entertainment-admin.module#EntertainmentAdminPageModule' },
   { path: 'trackcitybus/:latitude/:longitude', loadChildren: './trackcitybus/trackcitybus.module#TrackcitybusPageModule' },
   { path: 'trackgarbagetruck/:latitude/:longitude', loadChildren: './trackgarbagetruck/trackgarbagetruck.module#TrackgarbagetruckPageModule' },
+  { path: 'footballAdmin', loadChildren: './football-admin/football-admin.module#FootballAdminPageModule' },
+  { path: 'footbalFullAdmin', loadChildren: './footbal-full-admin/footbal-full-admin.module#FootbalFullAdminPageModule' },
+  { path: 'salesAdmin', loadChildren: './sales-admin/sales-admin.module#SalesAdminPageModule' },
 ];
 
 @NgModule({
