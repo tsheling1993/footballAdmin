@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +7,10 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private menu: MenuController,
   )
   {
 
@@ -60,5 +62,10 @@ export class HomePage {
   admin()
   {
    this.navCtrl.navigateForward('/admin');
+  }
+
+  openMenu(){
+    this.menu.enable(true);
+    this.menu.open('myMenu');
   }
 }

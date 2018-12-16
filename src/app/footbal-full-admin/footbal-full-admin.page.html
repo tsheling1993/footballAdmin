@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar color="success">
+      <ion-buttons>
+        <ion-back-button style="color:rgb(255, 255, 255);"></ion-back-button>
+        <ion-title style="color:white;"><b>Football Full Admin</b></ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <br><ion-button expand="full" color="primary" (click)="goMonday()">Monday</ion-button>
+      <div *ngIf="monday_var">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_all" (ionChange)="monAllToggle()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_8to10am" (ionChange)="monChangeStatus('mon_8to10am_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_10to12am" (ionChange)="monChangeStatus('mon_10to12am_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_12to2pm" (ionChange)="monChangeStatus('mon_12to2pm_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_2to4pm" (ionChange)="monChangeStatus('mon_2to4pm_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_4to6pm" (ionChange)="monChangeStatus('mon_4to6pm_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_6to8pm" (ionChange)="monChangeStatus('mon_6to8pm_arg')"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_8to10pm" (ionChange)="monChangeStatus('mon_8to10pm_arg')"></ion-toggle>
+          </ion-item>
+        </ion-list>
+    </div>
+  <ion-button expand="full" color="primary" (click)="goTuesday()">Tuesday</ion-button>
+  <ion-button expand="full" color="primary" (click)="goWednesday()">Wednesday</ion-button>
+  <ion-button expand="full" color="primary" (click)="goThursday()">Thursday</ion-button>
+  <ion-button expand="full" color="primary" (click)="goFriday()">Friday</ion-button>
+  <ion-button expand="full" color="primary" (click)="goSaturday()">Saturday</ion-button>
+  <ion-button expand="full" color="primary" (click)="goSunday()">Sunday</ion-button>
+
+
+</ion-content>

@@ -1,13 +1,150 @@
-<ion-header >
-    <ion-toolbar color="secondary">
+<ion-header>
+  <ion-toolbar color="primary">
       <ion-buttons>
-      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
-      <ion-back-button style="color:white;"></ion-back-button>
-      <ion-title id="title" style="color:white;">Football</ion-title>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <ion-title style="color:white;"><b>Football</b></ion-title>
       </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
-
+  <ion-tabs>
+    <ion-tab tab="ground_status">
+      <ion-list>
+        <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <p>Changlimithang Football</p>
+        </ion-item>
+        <div *ngIf="changFootball_var">
+          <ion-list>
+            <ion-item center button="true" (click)="showChangFullMon()"><span style="color:green;">Monday</span></ion-item>
+              <div *ngIf="changFootballMon_var">
+                <ion-list *ngFor='let data of changFootMonData'>
+                  <ion-item *ngIf="data.mon8to10am==true" >
+                    <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon8to10am==false" >
+                    <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon10to12am==true" >
+                    <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon10to12am==false" >
+                    <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon12to2pm==true" >
+                    <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon12to2pm==false" >
+                    <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon2to4pm==true" >
+                    <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon2to4pm==false" >
+                    <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon4to6pm==true" >
+                    <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon4to6pm==false" >
+                    <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon6to8pm==true" >
+                    <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon6to8pm==false" >
+                    <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon8to10pm==true" >
+                    <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label> <ion-icon (click)="callChang()" name="call"></ion-icon>
+                  </ion-item>
+                  <ion-item *ngIf="data.mon8to10pm==false" >
+                    <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+                  </ion-item>
+                </ion-list>
+              </div>
+            <ion-item center button="true"><span style="color:green;">Tuesday</span></ion-item>
+            <ion-item center button="true"><span style="color:green;">Wednesday</span></ion-item>
+            <ion-item center button="true"><span style="color:green;">Thursday</span></ion-item>
+            <ion-item center button="true"><span style="color:green;">Friday</span></ion-item>
+            <ion-item center button="true"><span style="color:green;">Saturday</span></ion-item>
+            <ion-item center button="true"><span style="color:green;">Sunday</span></ion-item>
+          </ion-list>
+        </div>
+        <ion-item class="contact-special" button="true">
+          <p>Changlimithang Futsal</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true">
+          <p>Changjiji Football</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true">
+          <p>Changjiji Futsal</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true">
+          <p>YDF Futsal</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true">
+          <p>Babesa Futsal</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true">
+          <p>Serbithang Football</p>
+        </ion-item>
+      </ion-list>
+    </ion-tab>
+    <ion-tab tab="match">
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="5"></ion-col>
+              <ion-col>
+                <ion-badge color="secondary">Full Time</ion-badge>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="2"></ion-col>
+              <ion-col size="4">
+                <img src="assets/img/transport.jpeg" height="70%" width="30%">
+              </ion-col>
+              <ion-col size="2"></ion-col>
+              <ion-col size="4">
+                <img src="assets/img/thimphucity.jpeg" height="70%" width="30%">                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5">
+                Trasnport FC 
+              </ion-col>
+              <ion-col size="1">
+                2
+              </ion-col>
+              <ion-col size="1">
+                1
+              </ion-col>
+              <ion-col size="5">
+                Thimphu City
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <span class="scorer">kencho Tobgay 10', 92'</span>
+              </ion-col>
+              <ion-col size="2"></ion-col>
+              <ion-col size="4">
+                <span class="scorer">Tshering Dorji 7'</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-tab>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="ground_status">
+        <ion-label style="font-size: 12pt;">Ground Status</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="match">
+        <ion-label style="font-size: 12pt;">Match</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>

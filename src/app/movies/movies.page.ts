@@ -30,7 +30,7 @@ export class MoviesPage implements OnInit {
     private iab: InAppBrowser
   )
   { 
-    this.fs.collection('/movies').get().subscribe(res=>
+    this.fs.collection('/movies',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
     {
       res.forEach((doc:any)=>
     {
