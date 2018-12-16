@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'religionAdmin', loadChildren: './religion-admin/religion-admin.module#ReligionAdminPageModule' },
   { path: 'festivalAdmin', loadChildren: './festival-admin/festival-admin.module#FestivalAdminPageModule' },
   { path: 'entertainmentAdmin', loadChildren: './entertainment-admin/entertainment-admin.module#EntertainmentAdminPageModule' },
+  { path: 'radioAdmin', loadChildren: './radio-admin/radio-admin.module#RadioAdminPageModule' },
 ];
 
 @NgModule({

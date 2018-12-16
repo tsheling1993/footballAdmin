@@ -30,7 +30,7 @@ export class EntertainmentAdminPage implements OnInit {
   insertFs(){
     this.fs.collection('/t_entertainment').add(
       {
-        tilte : this.rTitle,
+        title : this.rTitle,
         venue : this.rVenue,
         time : this.rTime,
         date : this.rDate,

@@ -154,6 +154,9 @@ export class AdminPage implements OnInit {
     this.navCtl.navigateForward('/entertainmentAdmin');
     this.showmovies = false;
   }
+  goRadio(){
+    this.navCtl.navigateForward('/radioAdmin');
+  }
   religion(){
     this.navCtl.navigateForward('/religionAdmin');
   }
