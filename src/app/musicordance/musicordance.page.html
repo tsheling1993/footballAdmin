@@ -9,5 +9,54 @@
   </ion-header>
 
 <ion-content padding>
+<ion-tabs>
 
+    <ion-tab tab="hello">
+    <ion-grid>
+      <!-- for displaying the entertainment data -->
+      <ion-list>
+          <ion-item>
+            <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                  <img src="assets/img/ent.jpg" height=160px; width=400px;>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>  
+    </ion-list>
+    <div  class="title">
+      <ion-list *ngFor='let data of rData' class="title">
+            <ion-grid>
+            <ion-item>
+            <ion-row>
+              <ion-col size="12">
+                  <span><b>Title:&nbsp;</b>{{data.title}}</span><br>
+                  <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
+                  <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
+                  <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br>
+                  <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
+                  <span><b>Details:&nbsp;</b>{{data.link}}</span><br>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+          </ion-grid>  
+      </ion-list>
+    </div>
+    </ion-grid>
+    </ion-tab>
+    <ion-tab tab="world">
+      <ion-grid>
+      you are in the radio valley.jdjdjd
+    </ion-grid>
+    </ion-tab>
+    <ion-tab-bar slot="top">
+        <ion-tab-button tab="hello">
+          <ion-label style="font-size: 12pt;">Entertainment</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="world">
+          <ion-label style="font-size: 12pt;">Tune to Radio</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+</ion-tabs>
 </ion-content>
