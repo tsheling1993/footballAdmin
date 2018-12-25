@@ -27,8 +27,9 @@ export class AppComponent {
     });
   }
   goAdminLogin(){
+    this.navCtrl.navigateForward('/admin');
     this.menu.toggle('myMenu');
-   this.navCtrl.navigateForward('/admin');
+   
   }
 
   async alertAdminLogin()
@@ -65,5 +66,9 @@ export class AppComponent {
   goContact(){
     this.menu.toggle('myMenu');
    this.navCtrl.navigateForward('/contact');
+  }
+  goAboutUs(){
+    this.menu.toggle('myMenu');
+   this.navCtrl.navigateForward('/aboutus');
   }
 }

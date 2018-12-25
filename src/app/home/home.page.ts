@@ -65,7 +65,6 @@ export class HomePage {
   }
 
   openMenu(){
-    this.menu.enable(true);
-    this.menu.open('myMenu');
+    this.menu.toggle('myMenu');
   }
 }

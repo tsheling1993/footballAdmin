@@ -1,13 +1,32 @@
 <ion-header >
-    <ion-toolbar color="secondary">
-      <ion-buttons>
-      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
-      <ion-back-button style="color:white;"></ion-back-button>
-      <ion-title id="title" style="color:white;">Sales</ion-title>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons>
+    <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+    <ion-back-button style="color:white;"></ion-back-button>
+    <ion-title><b style="color:white;">Sales</b></ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
-
+    <ion-list *ngFor='let data of sales'>
+      <ion-item class="stampBox">
+        <ion-grid>
+        
+        <ion-row>
+            <ion-col size="12">
+                <span><b>Product Title:&nbsp;</b>{{data.salestitle}}</span><br><br>
+                <img src="{{data.url}}" height=150px; width=400px;>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+              <span><b>UploadDate:&nbsp;</b>{{data.uploaddate}}</span><br>
+              <span><b>Price:&nbsp;</b>{{data.price}}</span><br>
+              <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>   
+  </ion-list>
 </ion-content>

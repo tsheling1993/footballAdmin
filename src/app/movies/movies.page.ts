@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
-import { AlertController, NavController, List } from '@ionic/angular';
+import { AlertController, NavController, List, MenuController } from '@ionic/angular';
 import { map } from 'rxjs/operators';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
@@ -27,7 +27,8 @@ export class MoviesPage implements OnInit {
     private fs: AngularFirestore,
     private alertCtrl: AlertController,
     private navCtrl: NavController,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private menu:MenuController
   )
   { 
     this.fs.collection('/movies',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
@@ -53,7 +54,9 @@ export class MoviesPage implements OnInit {
   
   ngOnInit() {
   }
-
+  openMenu(){
+    this.menu.toggle('myMenu');
+  }
   tailorLink(tailor: any){
     console.log("tailor: "+tailor);
     const browser = this.iab.create(tailor);

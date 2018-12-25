@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @Component({
@@ -20,7 +20,8 @@ export class EntertainmentAdminPage implements OnInit {
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    private menu: MenuController
   ){}
 
   ngOnInit() {
@@ -81,6 +82,10 @@ export class EntertainmentAdminPage implements OnInit {
       this.rDate = date,
       err => console.log('Error occurred while getting date: ', err)
     );
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 
   }

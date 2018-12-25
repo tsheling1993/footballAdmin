@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-football-admin',
@@ -10,10 +10,15 @@ export class FootballAdminPage implements OnInit {
 
   showGround_var: boolean = false;
   constructor(
-    private navCtl : NavController
+    private navCtl : NavController,
+    private menu: MenuController
   ) { }
 
   ngOnInit() {
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 
   updateStatus(){

@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="tertiary">
     <ion-buttons>
+        <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
       <ion-back-button style="color:rgb(255, 255, 255);"></ion-back-button>
       <ion-title style="color:white;"><b>Football Admin</b></ion-title>
     </ion-buttons>
@@ -10,9 +11,8 @@
 <ion-content padding>
   <br><br><br><br>
   <ion-button expand="full" color="primary" (click)="viewStatus()">View</ion-button><br>
-  <ion-button expand="full" color="primary" (click)="updateStatus()">Update Status</ion-button>
 
-    <div *ngIf="showGround_var">
+    <div>
       <br><ion-button color="primary" (click)="goAdminFullGround()">Full Ground</ion-button><br><br>
       <ion-button color="primary" (click)="goAdminFutsal()">Futsal</ion-button>
     </div>

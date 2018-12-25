@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-football',
   templateUrl: './football.page.html',
@@ -15,12 +15,17 @@ export class FootballPage implements OnInit {
 
   constructor(
     private fs: AngularFirestore,
+    private menu: MenuController
   ) 
   {
     this.loadFromFirestore();
   }
 
   ngOnInit() {
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 
   showChangFootball(){

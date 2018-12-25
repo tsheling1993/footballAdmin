@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu: MenuController) {
+  }
 
   ngOnInit() {
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 
 }

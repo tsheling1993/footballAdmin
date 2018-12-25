@@ -1,5 +1,5 @@
 <ion-header >
-    <ion-toolbar color="secondary">
+    <ion-toolbar color="tertiary">
       <ion-buttons>
       <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
       <ion-back-button style="color:white;"></ion-back-button>
@@ -25,7 +25,7 @@
           </ion-grid>
         </ion-item>  
     </ion-list>
-    <div  class="title">
+    <div  class="title" *ngIf="showentertainment">
       <ion-list *ngFor='let data of rData' class="title">
             <ion-grid>
             <ion-item>
@@ -47,27 +47,77 @@
     </ion-tab>
     <ion-tab tab="world">
         <ion-list>
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <ion-item class="contact-special" button="true" (click)="ShowradioVally()">
             <p>Radio Valley</p>
           </ion-item>
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <div *ngIf="changeradiovalley">
+            <ion-list>
+              <ion-item>
+                <ion-grid>
+                <ion-row>
+                    <ion-col size="12">
+                      <img src="assets/img/rv.png" height=100px; width=400px;>
+                    </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>  
+        </ion-list>
+        <div  class="title">
+          <ion-list *ngFor='let data of eData' class="title">
+                <ion-grid>
+                <ion-item>
+                <ion-row>
+                  <ion-col size="12">
+                      <span><b>08:00am:&nbsp;&nbsp;</b><span style="color:dodgerblue">{{data.date1}}</span></span><br>
+                      <span><b>01:00pm:&nbsp;&nbsp;</b><span style="color:dodgerblue">{{data.date2}}</span></span><br>
+                      <span><b>05:00pm:&nbsp;&nbsp;</b><span style="color:dodgerblue">{{data.date3}}</span></span><br>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              </ion-grid>  
+          </ion-list>
+        </div>
+      </div>
+          <ion-item class="contact-special" button="true" (click)="showKuzuE()">
            <p>Kuzu English</p>
           </ion-item>
-        
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <div *ngIf="changekuzueng">
+          <ion-item>
+              inside kuzu english
+          </ion-item>
+        </div>
+          <ion-item class="contact-special" button="true" (click)="showKuzuD()">
             <p>Kuzu Dzongkha</p>
           </ion-item>
-        
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <div *ngIf="changekuzudzo">
+          <ion-item>
+            inside kuzu dzo
+          </ion-item>
+        </div>
+          <ion-item class="contact-special" button="true" (click)="showYeya()">
             <p>Yega Radio</p>
           </ion-item>
-        
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <div *ngIf="changeyeya">
+          <ion-item>
+              inside yega radi
+          </ion-item>
+        </div>
+          <ion-item class="contact-special" button="true" (click)="showBbsE()">
             <p>BBS English</p>
           </ion-item>
-          <ion-item class="contact-special" button="true" (click)="showChangFootball()">
+          <div *ngIf="changebbseng">
+          <ion-item>
+            inside bbs english
+          </ion-item>
+        </div>
+          <ion-item class="contact-special" button="true" (click)="showBbsD()">
             <p>BBS Dzongkha</p>
           </ion-item>
+          <div *ngIf="changebbsdzo">
+            <ion-item>
+              inside bbs dzo
+            </ion-item>
+          </div>
         </ion-list>
     </ion-tab>
     <ion-tab-bar slot="top">
@@ -75,7 +125,7 @@
           <ion-label style="font-size: 12pt;">Entertainment</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="world">
-          <ion-label style="font-size: 12pt;">Tune to Radio</ion-label>
+          <ion-label style="font-size: 12pt;">Radio Programs</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
 </ion-tabs>

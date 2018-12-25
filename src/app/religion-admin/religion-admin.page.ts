@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @Component({
@@ -19,11 +19,14 @@ export class ReligionAdminPage implements OnInit {
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    private menu: MenuController
   ) {}
   ngOnInit() {
   }
-
+  openMenu(){
+    this.menu.toggle('myMenu');
+  }
     //for uploading the the data
     insertFs(){
       this.fs.collection('/t_religious').add(

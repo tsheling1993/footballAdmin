@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController,MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 @Component({
   selector: 'app-religious',
@@ -19,7 +19,8 @@ export class ReligiousPage implements OnInit {
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    private menu: MenuController
   ) 
   
   { 
@@ -41,5 +42,7 @@ export class ReligiousPage implements OnInit {
 
   ngOnInit() {
   }
-
+  openMenu(){
+    this.menu.toggle('myMenu');
+  }
 }

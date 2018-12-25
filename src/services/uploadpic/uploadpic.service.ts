@@ -27,7 +27,7 @@ export class UploadpicService {
   };
   uploads: AngularFirestoreDocument<Upload[]>;
 
-  pushUpload(upload: Upload,basePath:any,movieTitle:any) {
+  pushUpload(upload: Upload,basePath:any,title:any) {
     // this.storageRef = this.fstorage.ref(`${this.basePath}/${upload.file.name}`);
     let uploadTask: UploadTask = firebase.storage().ref(`${basePath}/${upload.file.name}`).put(upload.file);
     let name:string=upload.file.name;
@@ -53,12 +53,12 @@ export class UploadpicService {
       upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
     upload.name=upload.file.name;
     
-    firebase.storage().ref(`/movies/${upload.file.name}`).getDownloadURL().then((url)=>{
+    firebase.storage().ref(`${basePath}/${upload.file.name}`).getDownloadURL().then((url)=>{
       this.url=url;
       upload.url=url;
       this.uploadFs.name=name;
       this.uploadFs.createdAt=new Date().toString();
-      this.saveFileData(url,basePath,movieTitle);
+      this.saveFileData(url,basePath,title);
       // this.uploadFs.createdAt=new Date().toString();
       // console.log("upload="+this.uploadFs.url,this.uploadFs.name);
     });
@@ -87,10 +87,10 @@ export class UploadpicService {
   // console.log(error)
   // }); 
 }
-saveFileData(url:any,basePath:any,movieTitle:any) {
+saveFileData(url:any,basePath:any,title:any) {
   this.uploadFs.url=url;
   console.log('save data url='+url)
   console.log(this.uploadFs.name,this.uploadFs.url,this.uploadFs.createdAt);
-  this.fs.collection(`${basePath}`).doc(`${movieTitle}`).update(this.uploadFs);
+  this.fs.collection(`${basePath}`).doc(`${title}`).update(this.uploadFs);
 }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { UploadpicService } from '../../services/uploadpic/uploadpic.service';
 import { Upload } from '../../models/upload/upload';
@@ -32,7 +32,8 @@ export class AdminPage implements OnInit {
     private altCtl : AlertController,
     private navCtl : NavController,
     private datePicker: DatePicker,
-    private uploadServ: UploadpicService
+    private uploadServ: UploadpicService,
+    private menu: MenuController,
   )
   {
     //for retriving the data
@@ -142,7 +143,7 @@ export class AdminPage implements OnInit {
   }
 
   movies(){
-    this.showmovies = true;
+    this.navCtl.navigateForward('/movieadmin');
   }
   football(){
     this.showmovies = false;
@@ -167,12 +168,16 @@ export class AdminPage implements OnInit {
   }
   specialSale(){
     this.showmovies = false;
-    this.navCtl.navigateForward('/salesAdmin');
+    this.navCtl.navigateForward('/salesadmin');
   }
   thromde(){
     this.showmovies = false;
   }
   others(){
     this.showmovies = false;
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 }

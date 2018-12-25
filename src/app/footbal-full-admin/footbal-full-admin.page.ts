@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { AlertController, NavController, MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-footbal-full-admin',
   templateUrl: './footbal-full-admin.page.html',
@@ -22,12 +22,17 @@ export class FootbalFullAdminPage implements OnInit {
   mon_8to10pm: boolean;
 
   constructor(
-    private fs : AngularFirestore
+    private fs : AngularFirestore,
+    private menu: MenuController
   ) { 
     this.loadFromFirestore();
   }
 
   ngOnInit() {
+  }
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
 
   goMonday(){
