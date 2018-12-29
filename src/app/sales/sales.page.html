@@ -9,24 +9,61 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list *ngFor='let data of sales'>
-      <ion-item class="stampBox">
+  <ion-tabs>
+    <ion-tab tab="offer">
+      <ion-content overflow-scroll="false">
+    <ion-grid>
+      <!-- for displaying the offer data -->
+      <ion-list *ngFor='let data of sales' class="title">
         <ion-grid>
-        
-        <ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <b>Title:&nbsp;&nbsp;</b>{{data.salestitle}}<br><br>
+                  <img src="{{data.url}}" height=150px; width=400px;>
+              </ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col size="12">
-                <span><b>Product Title:&nbsp;</b>{{data.salestitle}}</span><br><br>
-                <img src="{{data.url}}" height=150px; width=400px;>
+                <div style="text-align: right; color:dodgerblue">{{data.uploaddate}}</div>
+                <div style="color:teal"><b>Details:</b></div>{{data.detail}}<br>
             </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="12">
-              <span><b>UploadDate:&nbsp;</b>{{data.uploaddate}}</span><br>
-              <span><b>Price:&nbsp;</b>{{data.price}}</span><br>
-              <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
-          </ion-col>
-        </ion-row>
+          </ion-row>
+        </ion-grid>  
+      </ion-list>
+    </ion-grid>
+  </ion-content>
+    </ion-tab>
+    <!-- for displaying the useditem data -->
+    <ion-tab tab="useditem">
+        <ion-content overflow-scroll="false">
+      <ion-grid>
+        <ion-list *ngFor='let data of items' class="title">
+          <ion-grid>
+          
+            <ion-row>
+                <ion-col size="12">
+                    <span><b>Title:&nbsp;</b>{{data.itemtitle}}</span><br><br>
+                    <img src="{{data.url}}" height=150px; width=400px;>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                  <div style="text-align: right; color:dodgerblue">{{data.uploaddate}}</div>
+                <div style="color:teal"><b>Details:</b></div>{{data.detail}}<br>
+              </ion-col>
+            </ion-row>
+          </ion-grid>  
+        </ion-list>
       </ion-grid>
-    </ion-item>   
-  </ion-list>
+    </ion-content>
+    </ion-tab>
+    <ion-tab-bar slot="top">
+        <ion-tab-button tab="offer">
+          <ion-label style="font-size: 12pt;">Offers</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="useditem">
+          <ion-label style="font-size: 12pt;">Used items</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+</ion-tabs>
 </ion-content>

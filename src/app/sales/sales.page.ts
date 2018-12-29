@@ -11,10 +11,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export class SalesPage implements OnInit {
   salesTitle : any;
   uploadDate : any;
-  salesPrice : any;
-  salesContact : any;
-  
+  salesDetail : any;
   sales:any[]=[];
+  items:any[]=[];
   salesList: Array<any[]>;
   title:any;
   desc:any;
@@ -34,14 +33,28 @@ export class SalesPage implements OnInit {
       this.sales.push({
         salestitle:doc.data().salestitle,
         uploaddate :doc.data().uploaddate,
-        price : doc.data().price,
-        contact : doc.data().contact,
+        detail : doc.data().detail,
         url: doc.data().url
       })
       // this.movieList.push(this.movie);
     });
     })
     console.log(this.sales);
+    //for retriving useditem data
+    this.fs.collection('/useditems',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
+      {
+        res.forEach((doc:any)=>
+      {
+        this.items.push({
+          itemtitle:doc.data().itemtitle,
+          uploaddate :doc.data().uploaddate,
+          detail : doc.data().detail,
+          url: doc.data().url
+        })
+        // this.movieList.push(this.movie);
+      });
+      })
+      console.log(this.items);
   }
   
   ngOnInit() {

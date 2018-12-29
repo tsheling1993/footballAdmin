@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { UploadpicService } from '../services/uploadpic/uploadpic.service';
+import { ImageResizer } from '@ionic-native/image-resizer/ngx';
 const config={
   apiKey: "AIzaSyA4Lp4OYSekcXStv6OYK3_Usua82Pojr_8",
     authDomain: "thimphu-events.firebaseapp.com",
@@ -36,6 +37,7 @@ const config={
     DatePicker,
     UploadpicService,
     Geolocation,
+    ImageResizer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -1,0 +1,52 @@
+<ion-header >
+    <ion-toolbar color="tertiary">
+      <ion-buttons>
+      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <ion-back-button style="color:white;"></ion-back-button>
+      <ion-title id="title" style="color:white;">Useditem Admin</ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <!-- for uploading the used item details -->
+  <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          Item Title:
+        </ion-col>
+        <ion-col size="8">
+            <ion-input type="text" placeholder="sales title" class="m-style" [(ngModel)]="itemTitle"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-label>Date:</ion-label>
+        </ion-col>
+        <ion-col size="8">
+            <ion-input type="text" button=true, placeholder="upload Date" value={{Date}} (click)="pickDate()" class="m-style" [(ngModel)]="uploadDate"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-label>Details:</ion-label>
+        </ion-col>
+        <ion-col size="8">
+            <ion-input type="text" placeholder="item details" class="m-style" [(ngModel)]="itemDetail"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-label>Image:</ion-label></ion-col>
+        <ion-col>
+            <ion-label>
+                <input type="file" (change)="detectSalesFiles($event)">
+             </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="insertUsedItem()" color="secondary" [disabled]="!selectedFiles"> usedItem upload</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

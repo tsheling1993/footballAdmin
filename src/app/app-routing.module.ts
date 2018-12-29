@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'movieadmin', loadChildren: './movieadmin/movieadmin.module#MovieadminPageModule' },
   { path: 'salesadmin', loadChildren: './salesadmin/salesadmin.module#SalesadminPageModule' },
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
+  { path: 'offer', loadChildren: './offer/offer.module#OfferPageModule' },
+  { path: 'useditem', loadChildren: './useditem/useditem.module#UseditemPageModule' },
 ];
 
 @NgModule({
