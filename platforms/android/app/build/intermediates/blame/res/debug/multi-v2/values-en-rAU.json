@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "/home/tashi/Documents/personalProjects/Thimphu-Events/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
+            "map": [
+                {
+                    "source": "/home/tashi/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/69dd555697f7174ab2d264c30ac47d39/res/values-en-rAU/values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/kinleydorji/Kinley/ThimphuEvents/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
