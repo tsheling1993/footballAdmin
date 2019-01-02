@@ -180,4 +180,7 @@ export class AdminPage implements OnInit {
   openMenu(){
     this.menu.toggle('myMenu');
   }
+  goRadio(){
+    this.navCtl.navigateForward('/radioadmin');
+  }
 }

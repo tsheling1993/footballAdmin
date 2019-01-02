@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
   { path: 'offer', loadChildren: './offer/offer.module#OfferPageModule' },
   { path: 'useditem', loadChildren: './useditem/useditem.module#UseditemPageModule' },
+  { path: 'radioadmin', loadChildren: './radioadmin/radioadmin.module#RadioadminPageModule' },
 ];
 
 @NgModule({
