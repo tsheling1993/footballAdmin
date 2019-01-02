@@ -9,12 +9,12 @@
   </ion-header>
 
 <ion-content padding>
-<ion-tabs>
+<!-- <ion-tabs>
 
-    <ion-tab tab="hello">
+    <ion-tab tab="hello"> -->
     <ion-grid>
       <!-- for displaying the entertainment data -->
-      <ion-list>
+      <!-- <ion-list>
           <ion-item>
             <ion-grid>
             <ion-row>
@@ -24,17 +24,17 @@
             </ion-row>
           </ion-grid>
         </ion-item>  
-    </ion-list>
-    <div  class="title" *ngIf="showentertainment">
+    </ion-list> -->
+    <div  class="title">
       <ion-list *ngFor='let data of rData' class="title">
             <ion-grid>
             <ion-item>
             <ion-row>
               <ion-col size="12">
+                  <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br>
                   <span><b>Title:&nbsp;</b>{{data.title}}</span><br>
                   <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
                   <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
-                  <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br>
                   <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
                   <span><b>Details:&nbsp;</b>{{data.link}}</span><br>
               </ion-col>
@@ -44,8 +44,8 @@
       </ion-list>
     </div>
     </ion-grid>
-    </ion-tab>
-    <ion-tab tab="world">
+    <!-- </ion-tab> -->
+    <!-- <ion-tab tab="world">
         <ion-list>
           <ion-item class="contact-special" button="true" (click)="ShowradioVally()">
             <p>Radio Valley</p>
@@ -119,8 +119,8 @@
             </ion-item>
           </div>
         </ion-list>
-    </ion-tab>
-    <ion-tab-bar slot="top">
+    </ion-tab> -->
+    <!-- <ion-tab-bar slot="top">
         <ion-tab-button tab="hello">
           <ion-label style="font-size: 12pt;">Entertainment</ion-label>
         </ion-tab-button>
@@ -128,5 +128,5 @@
           <ion-label style="font-size: 12pt;">Radio Programs</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
-</ion-tabs>
+</ion-tabs> -->
 </ion-content>
