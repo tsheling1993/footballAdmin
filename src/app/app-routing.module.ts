@@ -28,6 +28,8 @@ const routes: Routes = [
   { path: 'offer', loadChildren: './offer/offer.module#OfferPageModule' },
   { path: 'useditem', loadChildren: './useditem/useditem.module#UseditemPageModule' },
   { path: 'radioadmin', loadChildren: './radioadmin/radioadmin.module#RadioadminPageModule' },
+  { path: 'nightlifeadmin', loadChildren: './nightlifeadmin/nightlifeadmin.module#NightlifeadminPageModule' },
+  { path: 'otheradmin', loadChildren: './otheradmin/otheradmin.module#OtheradminPageModule' },
 ];
 
 @NgModule({

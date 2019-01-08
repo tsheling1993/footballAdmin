@@ -35,7 +35,7 @@ export class MusicordancePage implements OnInit {
     private menu:MenuController
   ) { 
     //for retriving the entertainment data from the database
-    this.fs.collection('/t_entertainment').get().subscribe(res=>
+    this.fs.collection('/t_entertainment',ref=>ref.orderBy('date', 'desc')).get().subscribe(res=>
       {
         res.forEach((doc:any)=>
         {

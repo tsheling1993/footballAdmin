@@ -4,10 +4,31 @@
       <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
       <ion-back-button style="color:white;"></ion-back-button>
       <ion-title id="title" style="color:white;">Others</ion-title>
+      <img src="assets/img/other.png" height=50px; width=50px;>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
-<ion-content padding>
-
-</ion-content>
+  
+  <ion-content padding>
+  <ion-list> 
+  </ion-list>
+  <div  class="title">
+    <ion-list *ngFor='let data of rData' class="title">
+          <ion-grid>
+          <ion-item>
+          <ion-row>
+            <ion-col size="12">
+                <div style="color:dodgerblue; text-align: right">{{data.date.toDate() | date:"mediumDate"}}</div>
+                <div><b>Title:&nbsp;</b>{{data.title}}</div>
+                <div><b>Time:&nbsp;</b>{{data.time}}</div>
+                <div><b>Venue:&nbsp;</b>{{data.venue}}</div>
+                <div><b>Price:&nbsp;</b>{{data.price}}</div>
+                <div><b>Detail:&nbsp;</b>{{data.detail}}</div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        </ion-grid>  
+    </ion-list>
+  </div>
+  </ion-content>
+  

@@ -24,7 +24,7 @@ export class ReligiousPage implements OnInit {
   ) 
   
   { 
-    this.fs.collection('/t_religious').get().subscribe(res=>
+    this.fs.collection('/t_religious',ref=>ref.orderBy('date', 'desc')).get().subscribe(res=>
     {
       res.forEach((doc:any)=>
     {

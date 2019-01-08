@@ -150,6 +150,7 @@ export class AdminPage implements OnInit {
   }
   nightlife(){
     this.showmovies = false;
+    this.navCtl.navigateForward('/nightlifeadmin');
   }
   music(){
     this.navCtl.navigateForward('/entertainmentAdmin');
@@ -175,6 +176,7 @@ export class AdminPage implements OnInit {
   }
   others(){
     this.showmovies = false;
+    this.navCtl.navigateForward('/otheradmin');
   }
 
   openMenu(){
@@ -182,5 +184,5 @@ export class AdminPage implements OnInit {
   }
   goRadio(){
     this.navCtl.navigateForward('/radioadmin');
-  }
+  }  
 }
