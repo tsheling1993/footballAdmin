@@ -91,7 +91,7 @@ export class AdminPage implements OnInit {
           this.alert("For Information","Insertion successful");
           this.navCtl.navigateForward('/movies');
         console.log(data);
-        this.uploadServ.pushUpload(this.currentUpload,basePath,this.movieTitle);
+        this.uploadServ.pushUpload1(this.currentUpload,basePath,this.movieTitle);
       }
       )
       

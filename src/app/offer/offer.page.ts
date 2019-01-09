@@ -52,7 +52,7 @@ export class OfferPage implements OnInit {
           this.alert("For Information","Insertion successful");
           this.navCtl.navigateForward('/sales');
         console.log(data);
-        this.uploadServ.pushUpload(this.currentUpload,basePath,this.salesTitle);
+        this.uploadServ.pushUpload1(this.currentUpload,basePath,this.salesTitle);
       }
       )
   }

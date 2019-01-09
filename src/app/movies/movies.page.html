@@ -15,19 +15,19 @@
         
         <ion-row>
             <ion-col size="12">
-                <span><b>Movie Title:&nbsp;</b>{{data.movietitle}}</span><br><br>
+                <div><span style="color:teal"><b>Movie Title:&nbsp;</b></span>{{data.movietitle}}</div>
                 <img src="{{data.url}}" height=150px; width=400px;>
             </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="12">
-              <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
-              <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
-              <span><b>StartDate:&nbsp;</b>{{data.startdate}}</span><br>
-              <span><b>EndDate:&nbsp;</b>{{data.enddate}}</span><br>
-              <span><b>Price:&nbsp;</b>{{data.price}}</span><br>
-              <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
-              <span><b>Trailer:&nbsp;</b><span button=true, style="color:blue" (click)="tailorLink(data.tailor)">{{data.tailor}}</span></span><br>
+              <div><span style="color:teal"><b>Venue:&nbsp;</b></span>{{data.venue}}</div>
+              <div><span style="color:teal"><b>Time:&nbsp;</b></span>{{data.time}}</div>
+              <div><span style="color:teal"><b>StartDate:&nbsp;</b></span>{{data.startdate}}</div>
+              <div><span style="color:teal"><b>EndDate:&nbsp;</b></span>{{data.enddate}}</div>
+              <div><span style="color:teal"><b>Price:&nbsp;</b></span>{{data.price}}</div>
+              <div><span style="color:teal"><b>Contact:&nbsp;</b></span>{{data.contact}}</div>
+              <div><span style="color:teal"><b>Trailer:&nbsp;</b></span><span button=true, style="color:blue" (click)="tailorLink(data.tailor)">{{data.tailor}}</span></div>
           </ion-col>
         </ion-row>
       </ion-grid>

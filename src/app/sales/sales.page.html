@@ -42,14 +42,21 @@
           
             <ion-row>
                 <ion-col size="12">
-                    <span><b>Type:&nbsp;</b>{{data.itemtitle}}</span><br><br>
-                    <img src="{{data.url}}" height=150px; width=400px;>
+                    <div><span style="color:teal"><b>Type:&nbsp;</b></span>{{data.itemtitle}}</div>
+                    <ion-slides pager="true" [options]="slideOpts">
+                      <ion-slide><img src="{{data.url1}}" style="height:150px; width:400px" (click)="viewImg1(data.url1)"></ion-slide>
+                      <ion-slide><img src="{{data.url2}}" style="height:150px; width:400px" (click)="viewImg2(data.url2)"></ion-slide>
+                      <ion-slide><img src="{{data.url3}}" style="height:150px; width:400px" (click)="viewImg3(data.url3)"></ion-slide>
+                    </ion-slides>
                 </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="12">
                   <div style="text-align: right; color:dodgerblue">{{data.uploaddate}}</div>
-                <div style="color:teal"><b>Details:</b></div>{{data.detail}}<br>
+                  <div><span style="color:teal"><b>Price:&nbsp;&nbsp;</b></span>{{data.itemprice}}</div>
+                  <div><span style="color:teal"><b>Contact:&nbsp;&nbsp;</b></span>{{data.itemcontact}}</div>
+                  <div><span style="color:teal"><b>Details:&nbsp;&nbsp;</b></span>{{data.detail}}</div>
+                  <div><span style="color:teal"><b>Status:&nbsp;&nbsp;</b></span><ion-badge color="secondary">{{data.itemstatus}}</ion-badge></div>
               </ion-col>
             </ion-row>
           </ion-grid>  
