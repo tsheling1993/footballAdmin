@@ -13,7 +13,6 @@ export class OthersPage implements OnInit {
   rTitle : any;
   rTime : any;
   rVenue : any;
-  rPrice : any;
   rDetail : any;
   date : any;
   rData:any[]=[];
@@ -34,7 +33,6 @@ export class OthersPage implements OnInit {
           title:doc.data().title,
           time : doc.data().time,
           venue:doc.data().venue,
-          price:doc.data().price,
           detail : doc.data().detail,
         })
       });

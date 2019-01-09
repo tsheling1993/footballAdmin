@@ -15,7 +15,6 @@ export class OtheradminPage implements OnInit {
   rTitle : any;
   rTime : any;
   rVenue : any;
-  rPrice : any;
   rDetail : any;
   date : any;
   constructor(
@@ -38,7 +37,6 @@ export class OtheradminPage implements OnInit {
         title : this.rTitle,
         time : this.rTime,
         venue : this.rVenue,
-        price : this.rPrice,
         detail : this.rDetail 
       }
       ).then(data=>
