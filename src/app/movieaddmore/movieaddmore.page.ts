@@ -9,11 +9,12 @@ import { ThrowStmt } from '@angular/compiler';
 import { Firebase } from '@ionic-native/firebase/ngx';
 
 @Component({
-  selector: 'app-movieadmin',
-  templateUrl: './movieadmin.page.html',
-  styleUrls: ['./movieadmin.page.scss'],
+  selector: 'app-movieaddmore',
+  templateUrl: './movieaddmore.page.html',
+  styleUrls: ['./movieaddmore.page.scss'],
 })
-export class MovieadminPage implements OnInit {
+export class MovieaddmorePage implements OnInit {
+
   movieTitle : any;
   movieVenue : any;
   movieTime : any;
@@ -141,21 +142,6 @@ export class MovieadminPage implements OnInit {
     );
   }
   goAddMore(){
-    this.navCtl.navigateForward('/movieaddmore');
-  }
-  //for deleting the movie item
-  goDelete(movietitle:any){
-    let basePath:string="/movies";
-    this.fs.collection(`${basePath}`).doc(`${movietitle}`).delete().then(data=>
-      {
-          this.alert("For Information","Deletion successful");
-          this.navCtl.navigateForward('/movies');
-      }
-      )
-  }
-  //for updating the item
-  goEdit(movietitle : any){
-    console.log(movietitle);
-    this.navCtl.navigateForward('/movieupdate/'+movietitle);
+    this.navCtl.navigateForward('/movies');
   }
 }

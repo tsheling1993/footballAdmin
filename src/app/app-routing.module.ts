@@ -32,6 +32,8 @@ const routes: Routes = [
   { path: 'otheradmin', loadChildren: './otheradmin/otheradmin.module#OtheradminPageModule' },
   { path: 'footballAdmin', loadChildren: './football-admin/football-admin.module#FootballAdminPageModule' },
   { path: 'footbalFutsalAdmin', loadChildren: './footbal-futsal-admin/footbal-futsal-admin.module#FootbalFutsalAdminPageModule' },
+  { path: 'movieupdate/:movietitle', loadChildren: './movieupdate/movieupdate.module#MovieupdatePageModule' },
+  { path: 'movieaddmore', loadChildren: './movieaddmore/movieaddmore.module#MovieaddmorePageModule' },
 ];
 
 @NgModule({

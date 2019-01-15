@@ -7,13 +7,15 @@ import { Upload } from '../../models/upload/upload';
 import * as _ from 'lodash';
 import { ThrowStmt } from '@angular/compiler';
 import { Firebase } from '@ionic-native/firebase/ngx';
+import { ActivatedRoute} from '@angular/router';
+
 
 @Component({
-  selector: 'app-movieadmin',
-  templateUrl: './movieadmin.page.html',
-  styleUrls: ['./movieadmin.page.scss'],
+  selector: 'app-movieupdate',
+  templateUrl: './movieupdate.page.html',
+  styleUrls: ['./movieupdate.page.scss'],
 })
-export class MovieadminPage implements OnInit {
+export class MovieupdatePage implements OnInit {
   movieTitle : any;
   movieVenue : any;
   movieTime : any;
@@ -31,36 +33,46 @@ export class MovieadminPage implements OnInit {
   movie:any[]=[];
   movieList: Array<any[]>;
   showaddnew : boolean = false;
+
+  movietitle: string=this.route.snapshot.params['movietitle'];
+
   constructor(private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
     private datePicker: DatePicker,
     private uploadServ: UploadpicService,
     private menu:MenuController,
-    private firebase: Firebase) { 
-
-      this.fs.collection('/movies',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
-        {
-          res.forEach((doc:any)=>
-        {
-          this.movie.push({
-            movietitle:doc.data().movietitle,
-            venue:doc.data().venue,
-            time : doc.data().time,
-            startdate :doc.data().startdate,
-            enddate : doc.data().enddate,
-            price : doc.data().price,
-            contact : doc.data().contact,
-            tailor : doc.data().tailor,
-            url: doc.data().url
-          })
-          // this.movieList.push(this.movie);
-        });
-        })
-        console.log(this.movie);
+    private firebase: Firebase,
+    public route: ActivatedRoute) { 
+      this.loadfromFirebase();
     }
 
   ngOnInit() {
+    console.log("movie title: "+this.movietitle);
+  }
+
+  loadfromFirebase(){
+     this.fs.collection('/movies').doc(`${this.movietitle}`).get().subscribe(res=>
+    //this.fs.collection('/movies').doc('ddd').get().subscribe(res=>
+
+      {
+      //   res.forEach((doc:any)=>
+      // {
+        this.movie.push({
+          movietitle:res.data().movietitle,
+          venue:res.data().venue,
+          time : res.data().time,
+          startdate :res.data().startdate,
+          enddate : res.data().enddate,
+          price : res.data().price,
+          contact : res.data().contact,
+          tailor : res.data().tailor,
+          url: res.data().url
+        })
+        // this.movieList.push(this.movie);
+      // });
+      })
+      console.log(this.movie);
   }
 
   openMenu(){
@@ -71,11 +83,11 @@ export class MovieadminPage implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  insertFs(){
+  goUpdate(){
     let basePath:string="/movies";
     let file = this.selectedFiles.item(0)
     this.currentUpload = new Upload(file);
-    this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).set(
+    this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).update(
       {
       movietitle : this.movieTitle,
       venue : this.movieVenue,
@@ -89,7 +101,7 @@ export class MovieadminPage implements OnInit {
     ).then(data=>
       {
         console.log("reach here with data: "+data);
-          this.alert("For Information","Insertion successful");
+          this.alert("For Information","update successful");
           this.navCtl.navigateForward('/movies');
         console.log(data);
         this.uploadServ.pushUpload1(this.currentUpload,basePath,this.movieTitle);
@@ -122,7 +134,6 @@ export class MovieadminPage implements OnInit {
     
       //console.log('Got date: ', date),
       
-      
     );
   }
   pickEndDate(){
@@ -139,23 +150,5 @@ export class MovieadminPage implements OnInit {
       }
       
     );
-  }
-  goAddMore(){
-    this.navCtl.navigateForward('/movieaddmore');
-  }
-  //for deleting the movie item
-  goDelete(movietitle:any){
-    let basePath:string="/movies";
-    this.fs.collection(`${basePath}`).doc(`${movietitle}`).delete().then(data=>
-      {
-          this.alert("For Information","Deletion successful");
-          this.navCtl.navigateForward('/movies');
-      }
-      )
-  }
-  //for updating the item
-  goEdit(movietitle : any){
-    console.log(movietitle);
-    this.navCtl.navigateForward('/movieupdate/'+movietitle);
   }
 }
