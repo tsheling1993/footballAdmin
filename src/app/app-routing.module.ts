@@ -30,6 +30,8 @@ const routes: Routes = [
   { path: 'radioadmin', loadChildren: './radioadmin/radioadmin.module#RadioadminPageModule' },
   { path: 'nightlifeadmin', loadChildren: './nightlifeadmin/nightlifeadmin.module#NightlifeadminPageModule' },
   { path: 'otheradmin', loadChildren: './otheradmin/otheradmin.module#OtheradminPageModule' },
+  { path: 'footballAdmin', loadChildren: './football-admin/football-admin.module#FootballAdminPageModule' },
+  { path: 'footbalFutsalAdmin', loadChildren: './footbal-futsal-admin/footbal-futsal-admin.module#FootbalFutsalAdminPageModule' },
 ];
 
 @NgModule({
