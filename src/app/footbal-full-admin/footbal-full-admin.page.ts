@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController, MenuController, LoadingController } from '@ionic/angular';
-
 @Component({
   selector: 'app-footbal-full-admin',
   templateUrl: './footbal-full-admin.page.html',
@@ -92,14 +91,6 @@ export class FootbalFullAdminPage implements OnInit {
   sun_6to8pm: boolean;
   sun_8to10pm: boolean;
 
-  mon_show: boolean = false;
-  tues_show: boolean = false;
-  wed_show: boolean = false;
-  thu_show: boolean = false;
-  fri_show: boolean = false;
-  sat_show: boolean = false;
-  sun_show: boolean = false;
-
   constructor(
     private fs : AngularFirestore,
     private menu: MenuController,
@@ -127,76 +118,8 @@ export class FootbalFullAdminPage implements OnInit {
   goDay(day:any){
     console.log("show day="+day);
     this.day=day;
-    this.checkDayShow(this.day);
   }
 
-  checkDayShow(day: any){
-    if(day == '/monday'){
-      console.log("monday checked")
-      this.mon_show = true;
-      this.tues_show = false;
-      this.wed_show = false;
-      this.thu_show = false;
-      this.fri_show = false;
-      this.sat_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/tuesday'){
-      console.log("tuesday checked")
-      this.tues_show = true;
-      this.mon_show = false;
-      this.wed_show = false;
-      this.thu_show = false;
-      this.fri_show = false;
-      this.sat_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/wednesday'){
-      this.wed_show = true;
-      this.mon_show = false;
-      this.tues_show = false;
-      this.thu_show = false;
-      this.fri_show = false;
-      this.sat_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/thursday'){
-      this.thu_show = true;
-      this.mon_show = false;
-      this.tues_show = false;
-      this.wed_show = false;
-      this.fri_show = false;
-      this.sat_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/friday'){
-      this.fri_show = true;
-      this.mon_show = false;
-      this.tues_show = false;
-      this.wed_show = false;
-      this.thu_show = false;
-      this.sat_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/saturday'){
-      this.sat_show = true;
-      this.mon_show = false;
-      this.tues_show = false;
-      this.wed_show = false;
-      this.thu_show = false;
-      this.fri_show = false;
-      this.sun_show = false;
-    }
-    else if(day == '/sunday'){
-      this.sun_show = true;
-      this.mon_show = false;
-      this.tues_show = false;
-      this.wed_show = false;
-      this.thu_show = false;
-      this.fri_show = false;
-      this.sat_show = false;
-    }
-  }
   async presentLoading() {
     const loading = await this.loadingController.create({
      // message: 'Hellooo',
