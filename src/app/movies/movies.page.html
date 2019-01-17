@@ -14,20 +14,20 @@
         <ion-grid>
         
         <ion-row>
-            <ion-col size="12">
-                <div><span style="color:teal"><b>Movie Title:&nbsp;</b></span>{{data.movietitle}}</div>
+            <ion-col size="12" style="font-family: 'Times New Roman', Times, serif;">
+                <div><span style="color:teal">Movie Title:&nbsp;</span>{{data.movietitle}}</div>
                 <img src="{{data.url}}" height=150px; width=400px;>
             </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col size="12">
-              <div><span style="color:teal"><b>Venue:&nbsp;</b></span>{{data.venue}}</div>
-              <div><span style="color:teal"><b>Time:&nbsp;</b></span>{{data.time}}</div>
-              <div><span style="color:teal"><b>StartDate:&nbsp;</b></span>{{data.startdate}}</div>
-              <div><span style="color:teal"><b>EndDate:&nbsp;</b></span>{{data.enddate}}</div>
-              <div><span style="color:teal"><b>Price:&nbsp;</b></span>{{data.price}}</div>
-              <div><span style="color:teal"><b>Contact:&nbsp;</b></span>{{data.contact}}</div>
-              <div><span style="color:teal"><b>Trailer:&nbsp;</b></span><span button=true, style="color:blue" (click)="tailorLink(data.tailor)">{{data.tailor}}</span></div>
+          <ion-col size="12" style="font-family: 'Times New Roman', Times, serif;">
+              <div><span style="color:teal;">Venue:&nbsp;</span>{{data.venue}}</div>
+              <div><span style="color:teal">Time:&nbsp;</span>{{data.time}}</div>
+              <div><span style="color:teal">StartDate:&nbsp;</span>{{data.startdate}}</div>
+              <div><span style="color:teal">EndDate:&nbsp;</span>{{data.enddate}}</div>
+              <div><span style="color:teal">Price:&nbsp;</span>Nu. {{data.price}}/-</div>
+              <div><span style="color:teal">Contact:&nbsp;</span>{{data.contact}}</div>
+              <div><span style="color:teal">Trailer:&nbsp;</span><span button=true, style="color:blue" (click)="tailorLink(data.tailor)">{{data.tailor}}</span></div>
           </ion-col>
         </ion-row>
       </ion-grid>

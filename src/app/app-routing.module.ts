@@ -34,6 +34,8 @@ const routes: Routes = [
   { path: 'footbalFutsalAdmin', loadChildren: './footbal-futsal-admin/footbal-futsal-admin.module#FootbalFutsalAdminPageModule' },
   { path: 'movieupdate/:movietitle', loadChildren: './movieupdate/movieupdate.module#MovieupdatePageModule' },
   { path: 'movieaddmore', loadChildren: './movieaddmore/movieaddmore.module#MovieaddmorePageModule' },
+  { path: 'football-changlimithang', loadChildren: './football-changlimithang/football-changlimithang.module#FootballChanglimithangPageModule' },
+  { path: 'futsal-changlimithang', loadChildren: './futsal-changlimithang/futsal-changlimithang.module#FutsalChanglimithangPageModule' },
 ];
 
 @NgModule({

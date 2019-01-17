@@ -148,7 +148,8 @@ export class FootbalFutsalAdminPage implements OnInit {
 
   constructor(
     private fs : AngularFirestore,
-    private menu: MenuController
+    private menu: MenuController,
+    public alertController: AlertController
   ) { 
     this.loadFromFirestoreMonday();
     this.loadFromFirestoreTuesday();
@@ -170,6 +171,90 @@ export class FootbalFutsalAdminPage implements OnInit {
     this.day=day;
   }
 
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Changes will be made for all timing which cannot be reset. Are you sure to proceed?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+            if(this.day == '/monday'){
+              if(this.mon_all == true){
+                this.mon_all = false;
+                console.log("blah: false"+this.mon_all);
+              }
+              else{
+                this.mon_all = true;
+                console.log("blah: true"+this.mon_all);
+              }
+            }
+
+            else if(this.day == '/tuesday'){
+              if(this.tues_all == true){
+                this.tues_all = false;
+              }
+              else{
+                this.tues_all = true;
+              }
+            }
+            else if(this.day == '/wednesday'){
+              if(this.wed_all == true){
+                this.wed_all = false;
+              }
+              else{
+                this.wed_all = true;
+              }
+            }
+            else if(this.day == '/thursday'){
+              if(this.thu_all == true){
+                this.thu_all = false;
+              }
+              else{
+                this.thu_all = true;
+              }
+            }
+            else if(this.day == '/friday'){
+              if(this.fri_all == true){
+                this.fri_all = false;
+              }
+              else{
+                this.fri_all = true;
+              }
+            }
+            else if(this.day == '/saturday'){
+              if(this.sat_all == true){
+                this.sat_all = false;
+              }
+              else{
+                this.sat_all = true;
+              }
+            }
+            else if(this.day == '/sunday'){
+              if(this.sun_all == true){
+                this.sun_all = false;
+              }
+              else{
+                this.sun_all = true;
+              }
+            }
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.allToggle();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  
   allToggle(){
     if(this.day == "/monday"){
         if(this.mon_all == true){

@@ -16,6 +16,7 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { UploadpicService } from '../services/uploadpic/uploadpic.service';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { ImageResizer } from '@ionic-native/image-resizer/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 const config={
   apiKey: "AIzaSyA4Lp4OYSekcXStv6OYK3_Usua82Pojr_8",
     authDomain: "thimphu-events.firebaseapp.com",
@@ -40,6 +41,7 @@ const config={
     Geolocation,
     ImageResizer,
     PhotoViewer,
+    CallNumber,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

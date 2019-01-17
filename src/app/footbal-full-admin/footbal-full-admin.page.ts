@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController, MenuController } from '@ionic/angular';
+import { AlertController, NavController, MenuController, LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-footbal-full-admin',
   templateUrl: './footbal-full-admin.page.html',
@@ -93,8 +93,11 @@ export class FootbalFullAdminPage implements OnInit {
 
   constructor(
     private fs : AngularFirestore,
-    private menu: MenuController
+    private menu: MenuController,
+    public alertController: AlertController,
+    public loadingController: LoadingController
   ) { 
+    this.presentLoading();
     this.loadFromFirestoreMonday();
     this.loadFromFirestoreTuesday();
     this.loadFromFirestoreWednesday();
@@ -102,6 +105,7 @@ export class FootbalFullAdminPage implements OnInit {
     this.loadFromFirestoreFriday();
     this.loadFromFirestoreSaturday();
     this.loadFromFirestoreSunday();
+    this.loadingController.dismiss();      
   }
 
   ngOnInit() {
@@ -113,13 +117,101 @@ export class FootbalFullAdminPage implements OnInit {
 
   goDay(day:any){
     console.log("show day="+day);
-    // if(this.monday_var == false){
-    //   this.monday_var = true;
-    // }
-    // else{
-    //   this.monday_var = false;
-    // }
     this.day=day;
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+     // message: 'Hellooo',
+      duration: 15000,
+      spinner: 'crescent',
+      cssClass: 'loaderClass'
+    });
+    return await loading.present();
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Changes will be made for all timing which cannot be reset. Are you sure to proceed?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+            if(this.day == '/monday'){
+              if(this.mon_all == true){
+                this.mon_all = false;
+                console.log("blah: false"+this.mon_all);
+              }
+              else{
+                this.mon_all = true;
+                console.log("blah: true"+this.mon_all);
+              }
+            }
+
+            else if(this.day == '/tuesday'){
+              if(this.tues_all == true){
+                this.tues_all = false;
+              }
+              else{
+                this.tues_all = true;
+              }
+            }
+            else if(this.day == '/wednesday'){
+              if(this.wed_all == true){
+                this.wed_all = false;
+              }
+              else{
+                this.wed_all = true;
+              }
+            }
+            else if(this.day == '/thursday'){
+              if(this.thu_all == true){
+                this.thu_all = false;
+              }
+              else{
+                this.thu_all = true;
+              }
+            }
+            else if(this.day == '/friday'){
+              if(this.fri_all == true){
+                this.fri_all = false;
+              }
+              else{
+                this.fri_all = true;
+              }
+            }
+            else if(this.day == '/saturday'){
+              if(this.sat_all == true){
+                this.sat_all = false;
+              }
+              else{
+                this.sat_all = true;
+              }
+            }
+            else if(this.day == '/sunday'){
+              if(this.sun_all == true){
+                this.sun_all = false;
+              }
+              else{
+                this.sun_all = true;
+              }
+            }
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.allToggle();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   allToggle(){

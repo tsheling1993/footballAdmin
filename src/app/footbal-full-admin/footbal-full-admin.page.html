@@ -14,7 +14,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="mon_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="mon_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -54,7 +54,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="tues_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="tues_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -95,7 +95,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="wed_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="wed_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -136,7 +136,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="thu_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="thu_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -177,7 +177,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="fri_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="fri_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -218,7 +218,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="sat_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="sat_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
@@ -259,7 +259,7 @@
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
-            <ion-toggle color="secondary" [(ngModel)]="sun_all" (ionChange)="allToggle()"></ion-toggle>
+            <ion-toggle color="secondary" [(ngModel)]="sun_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
           </ion-item>
         </ion-list>
 
