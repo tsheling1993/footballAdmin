@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController, MenuController, LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-footbal-full-admin',
   templateUrl: './footbal-full-admin.page.html',
@@ -105,7 +106,7 @@ export class FootbalFullAdminPage implements OnInit {
     public alertController: AlertController,
     public loadingController: LoadingController
   ) { 
-    this.presentLoading();
+    //this.presentLoading();
     this.loadFromFirestoreMonday();
     this.loadFromFirestoreTuesday();
     this.loadFromFirestoreWednesday();
@@ -113,7 +114,7 @@ export class FootbalFullAdminPage implements OnInit {
     this.loadFromFirestoreFriday();
     this.loadFromFirestoreSaturday();
     this.loadFromFirestoreSunday();
-    this.loadingController.dismiss();      
+    //this.loadingController.dismiss();      
   }
 
   ngOnInit() {
@@ -131,6 +132,7 @@ export class FootbalFullAdminPage implements OnInit {
 
   checkDayShow(day: any){
     if(day == '/monday'){
+      console.log("monday checked")
       this.mon_show = true;
       this.tues_show = false;
       this.wed_show = false;
@@ -140,6 +142,7 @@ export class FootbalFullAdminPage implements OnInit {
       this.sun_show = false;
     }
     else if(day == '/tuesday'){
+      console.log("tuesday checked")
       this.tues_show = true;
       this.mon_show = false;
       this.wed_show = false;
