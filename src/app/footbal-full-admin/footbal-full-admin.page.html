@@ -10,7 +10,7 @@
 
 <ion-content padding>
   <br><ion-button expand="full" color="primary" (click)="goDay('/monday')">Monday</ion-button>
-      <div *ngIf="day=='/monday'">
+      <div *ngIf="mon_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -50,7 +50,7 @@
         </ion-list>
     </div>
   <ion-button expand="full" color="primary" (click)="goDay('/tuesday')">Tuesday</ion-button>
-      <div *ngIf="day=='/tuesday'">
+      <div *ngIf="tues_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -91,7 +91,7 @@
         </div>
   
   <ion-button expand="full" color="primary" (click)="goDay('/wednesday')">Wednesday</ion-button>
-      <div *ngIf="day=='/wednesday'">
+      <div *ngIf="wed_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -132,7 +132,7 @@
       </div>
   
   <ion-button expand="full" color="primary" (click)="goDay('/thursday')">Thursday</ion-button>
-      <div *ngIf="day=='/thursday'">
+      <div *ngIf="thu_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -173,7 +173,7 @@
       </div>  
 
   <ion-button expand="full" color="primary" (click)="goDay('/friday')">Friday</ion-button>
-      <div *ngIf="day=='/friday'">
+      <div *ngIf="fri_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -214,7 +214,7 @@
       </div>  
 
     <ion-button expand="full" color="primary" (click)="goDay('/saturday')">Saturday</ion-button>
-      <div *ngIf="day=='/saturday'">
+      <div *ngIf="sat_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -255,7 +255,7 @@
       </div>  
 
     <ion-button expand="full" color="primary" (click)="goDay('/sunday')">Sunday</ion-button>
-      <div *ngIf="day=='/sunday'">
+      <div *ngIf="sun_show">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
