@@ -37,4 +37,7 @@ export class FootballAdminPage implements OnInit {
   goAdminFutsal(){
     this.navCtl.navigateForward('/footbalFutsalAdmin');    
   }
+  gomatch(){
+    this.navCtl.navigateForward('/footmatchadmin');
+  }
 }
