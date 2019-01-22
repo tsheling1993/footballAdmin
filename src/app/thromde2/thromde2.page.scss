@@ -1,0 +1,22 @@
+.input_border{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color:teal;
+  }
+  .destination{
+      color: red;
+      background-color: yellow;
+      font-size: 10px;
+  }
+  .resultBox{
+    background-color: rgba(197, 188, 188, 0.8);
+    border: 1px;
+    //animation-name: fadeInDown;
+    //animation-iteration-count: 0.5s;
+    //animation-duration: 0.7s;
+}
+.source{
+    font-size: 10pt;
+    color: rgb(32, 69, 173);
+}

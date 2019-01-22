@@ -19,7 +19,7 @@ export class ThromdePage implements OnInit {
   showScheC_var: boolean = false;
   showTrackG_var: boolean = true;
   showScheG_var: boolean = false;
-  stampResultStatus: boolean = false;
+  
   latitude:any;
   longitude:any;
   constructor(private navCtrl:NavController,
@@ -43,8 +43,7 @@ export class ThromdePage implements OnInit {
     this.scheCSelectColor = "medium";
     this.showTrackC_var= true;
     this.showScheC_var = false;
-    this.stampResultStatus = false;
-
+    console.log("showTrackCity");
   }
   showScheC()
   {
@@ -52,7 +51,7 @@ export class ThromdePage implements OnInit {
     this.scheCSelectColor = "tertiary";
     this.showTrackC_var = false;
     this.showScheC_var = true;
-    this.stampResultStatus = true;
+    console.log("showSchedule city");
   }
 
   showTrackG()
@@ -61,8 +60,6 @@ export class ThromdePage implements OnInit {
     this.scheGSelectColor = "medium";
     this.showTrackG_var= true;
     this.showScheG_var = false;
-    this.stampResultStatus = false;
-
   }
   showScheG()
   {
@@ -70,7 +67,6 @@ export class ThromdePage implements OnInit {
     this.scheGSelectColor = "tertiary";
     this.showTrackG_var = false;
     this.showScheG_var = true;
-    this.stampResultStatus = true;
   }
   goTrackCMap()
   {

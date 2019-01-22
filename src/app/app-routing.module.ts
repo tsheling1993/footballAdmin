@@ -36,6 +36,7 @@ const routes: Routes = [
   { path: 'movieaddmore', loadChildren: './movieaddmore/movieaddmore.module#MovieaddmorePageModule' },
   { path: 'football-changlimithang', loadChildren: './football-changlimithang/football-changlimithang.module#FootballChanglimithangPageModule' },
   { path: 'futsal-changlimithang', loadChildren: './futsal-changlimithang/futsal-changlimithang.module#FutsalChanglimithangPageModule' },
+  { path: 'thromde2', loadChildren: './thromde2/thromde2.module#Thromde2PageModule' },
 ];
 
 @NgModule({

@@ -52,7 +52,7 @@ export class HomePage {
 
   goThromde()
   {
-    this.navCtrl.navigateForward('/thromde');
+    this.navCtrl.navigateForward('/thromde2');
   }
 
   goOthers()
