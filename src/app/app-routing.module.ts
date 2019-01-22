@@ -37,6 +37,9 @@ const routes: Routes = [
   { path: 'football-changlimithang', loadChildren: './football-changlimithang/football-changlimithang.module#FootballChanglimithangPageModule' },
   { path: 'futsal-changlimithang', loadChildren: './futsal-changlimithang/futsal-changlimithang.module#FutsalChanglimithangPageModule' },
   { path: 'thromde2', loadChildren: './thromde2/thromde2.module#Thromde2PageModule' },
+  { path: 'footmatchadmin', loadChildren: './footmatchadmin/footmatchadmin.module#FootmatchadminPageModule' },
+  { path: 'footmatchaddmore', loadChildren: './footmatchaddmore/footmatchaddmore.module#FootmatchaddmorePageModule' },
+  { path: 'matchupdate/:matchtitle', loadChildren: './matchupdate/matchupdate.module#MatchupdatePageModule' },
 ];
 
 @NgModule({

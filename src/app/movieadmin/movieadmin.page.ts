@@ -55,9 +55,10 @@ export class MovieadminPage implements OnInit {
             url: doc.data().url
           })
           // this.movieList.push(this.movie);
+          console.log("movie data: "+this.movie);
         });
         })
-        console.log(this.movie);
+       
     }
 
   ngOnInit() {
@@ -67,36 +68,36 @@ export class MovieadminPage implements OnInit {
     this.menu.toggle('myMenu');
   }
 
-  detectFiles(event:any){
-    this.selectedFiles = event.target.files;
-  }
+  // detectFiles(event:any){
+  //   this.selectedFiles = event.target.files;
+  // }
 
-  insertFs(){
-    let basePath:string="/movies";
-    let file = this.selectedFiles.item(0)
-    this.currentUpload = new Upload(file);
-    this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).set(
-      {
-      movietitle : this.movieTitle,
-      venue : this.movieVenue,
-      time : this.movieTime,
-      startdate : this.startDate, 
-      enddate : this.endDate,
-      price : this.moviePrice,
-      contact : this.movieContact,
-      tailor : this.movieTailor
-    }
-    ).then(data=>
-      {
-        console.log("reach here with data: "+data);
-          this.alert("For Information","Insertion successful");
-          this.navCtl.navigateForward('/movies');
-        console.log(data);
-        this.uploadServ.pushUpload1(this.currentUpload,basePath,this.movieTitle);
-      }
-      )
+  // insertFs(){
+  //   let basePath:string="/movies";
+  //   let file = this.selectedFiles.item(0)
+  //   this.currentUpload = new Upload(file);
+  //   this.fs.collection(`${basePath}`).doc(`${this.movieTitle}`).set(
+  //     {
+  //     movietitle : this.movieTitle,
+  //     venue : this.movieVenue,
+  //     time : this.movieTime,
+  //     startdate : this.startDate, 
+  //     enddate : this.endDate,
+  //     price : this.moviePrice,
+  //     contact : this.movieContact,
+  //     tailor : this.movieTailor
+  //   }
+  //   ).then(data=>
+  //     {
+  //       console.log("reach here with data: "+data);
+  //         this.alert("For Information","Insertion successful");
+  //         this.navCtl.navigateForward('/movies');
+  //       console.log(data);
+  //       this.uploadServ.pushUpload1(this.currentUpload,basePath,this.movieTitle);
+  //     }
+  //     )
       
-  }
+  // }
 
   async alert(header:string,message:string)
   {

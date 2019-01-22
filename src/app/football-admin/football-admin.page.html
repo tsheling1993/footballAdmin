@@ -9,11 +9,28 @@
 </ion-header>
 
 <ion-content padding>
-  <br><br><br><br>
+  <!-- <br><br><br><br>
   <ion-button expand="full" color="primary" (click)="viewStatus()">View</ion-button>
     <div>
       <br><ion-button expand="full" color="primary" (click)="goAdminFullGround()">Football Full Ground</ion-button><br>
       <ion-button expand="full" color="primary" (click)="goAdminFutsal()">Futsal Ground</ion-button>
     </div>
+    <div>
+        <ion-button expand="full" color="primary" (click)="gomatch()">Football match</ion-button>
+    </div> -->
+
+    <ion-list>
+        <ion-item class="contact-special" button="true" (click)="updateStatus()">
+          <p>View</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true" (click)="goAdminFullGround()">
+          <p>Football Full Ground</p>
+        </ion-item>
+        <ion-item class="contact-special" button="true" (click)="goAdminFutsal()">
+          <p>Futsal Ground</p>
+        </ion-item> 
+        <ion-item class="contact-special" button="true" (click)="gomatch()">
+            <p>Football match</p>
+          </ion-item>
+    </ion-list>
 </ion-content>
-<!-- test for commit -->

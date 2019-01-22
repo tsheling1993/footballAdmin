@@ -37,45 +37,37 @@
         </ion-list>
       </ion-content>
     </ion-tab>
+
     <ion-tab tab="match">
       <ion-content padding overflow-scroll="false">
-        <!-- <ion-list>
-          <ion-item>
-            <ion-row>
-              <ion-col text-wrap>
-                <ion-text class="date">16 Jan 2019, 6:00 pm</ion-text>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="5">Transport FC</ion-col>
-              <ion-col size="2">2 : 1</ion-col>
-              <ion-col size="5">Thimphu City</ion-col>            
-            </ion-row>
-          </ion-item>
-        </ion-list> -->
+        <ion-list *ngFor="let data of match">
         <ion-grid>
           <ion-row>
-            <ion-col class="date">16 Jan 2019, 6:00 pm</ion-col>
+            <ion-col class="date">
+                <ion-badge color="success"  class="font-style"><b>{{data.matchtitle}}</b></ion-badge>
+                <div style="color:dodgerblue; text-align: right">{{data.matchdate}}, {{data.matchtime}}</div>
+            </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col size="5">
-              Thimphu City
+            <ion-col  class="date"><span style="color:dodgerblue; text-align: right"><b>Venue:&nbsp;</b></span><span style="color:dodgerblue; text-align: right">{{data.matchvenue}}</span></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="5" class="font-style">
+              {{data.matchteam1}}
             </ion-col>
             <ion-col size="2">
-              2 - 11
+              <ion-badge color="secondary"  class="font-style">{{data.matchsore}}</ion-badge>
             </ion-col>
-            <ion-col size="5">
-              Transport FC
+            <ion-col size="5"  class="font-style">
+              {{data.matchteam2}}
             </ion-col>
           </ion-row>
+          <hr>
         </ion-grid>
-        <ion-list>
-          <ion-item>
-            
-          </ion-item>
-        </ion-list>
+       </ion-list>
       </ion-content>
     </ion-tab>
+
     <ion-tab-bar slot="top">
       <ion-tab-button tab="ground_status">
         <ion-label style="font-size: 12pt;">Ground Status</ion-label>
