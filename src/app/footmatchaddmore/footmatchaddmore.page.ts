@@ -63,7 +63,7 @@ export class FootmatchaddmorePage implements OnInit {
 
   insertFs(){
     let basePath:string="/t_football_match";
-    this.fs.collection(`${basePath}`).doc(`${this.matchTitle}`).set(
+    this.fs.collection(`${basePath}`).doc(`${this.matchTitle+this.matchDate+this.matchTime}`).set(
       {
       matchtitle : this.matchTitle,
       matchteam1 : this.matchTeam1,
@@ -79,7 +79,7 @@ export class FootmatchaddmorePage implements OnInit {
           this.alert("For Information","Insertion successful");
           this.navCtl.navigateForward('/football');
         console.log(data);
-        this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
+       // this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
       }
       )
   }

@@ -40,6 +40,8 @@ const routes: Routes = [
   { path: 'footmatchadmin', loadChildren: './footmatchadmin/footmatchadmin.module#FootmatchadminPageModule' },
   { path: 'footmatchaddmore', loadChildren: './footmatchaddmore/footmatchaddmore.module#FootmatchaddmorePageModule' },
   { path: 'matchupdate/:matchtitle', loadChildren: './matchupdate/matchupdate.module#MatchupdatePageModule' },
+  { path: 'useditemaddmore', loadChildren: './useditemaddmore/useditemaddmore.module#UseditemaddmorePageModule' },
+  { path: 'useditemupdate/:itemtitle', loadChildren: './useditemupdate/useditemupdate.module#UseditemupdatePageModule' },
 ];
 
 @NgModule({
