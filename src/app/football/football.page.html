@@ -44,12 +44,12 @@
         <ion-grid>
           <ion-row>
             <ion-col class="date">
-                <ion-badge color="success"  class="font-style"><b>{{data.matchtitle}}</b></ion-badge>
-                <div style="color:dodgerblue; text-align: right">{{data.matchdate}}, {{data.matchtime}}</div>
+                <ion-badge color="success"  class="font-style"><b><ion-icon name="football"></ion-icon>{{data.matchtitle}}</b></ion-badge>
+                <div style="color:dodgerblue; text-align: right"><ion-icon name="calendar"></ion-icon>{{data.matchdate}}, {{data.matchtime}}</div>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col  class="date"><span style="color:dodgerblue; text-align: right"><b>Venue:&nbsp;</b></span><span style="color:dodgerblue; text-align: right">{{data.matchvenue}}</span></ion-col>
+            <ion-col  class="date"><span style="color:dodgerblue; text-align: right"><ion-icon name="pin"></ion-icon><b>Venue:&nbsp;</b></span>{{data.matchvenue}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col size="5" class="font-style">

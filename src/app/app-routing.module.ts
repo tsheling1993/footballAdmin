@@ -42,6 +42,8 @@ const routes: Routes = [
   { path: 'matchupdate/:matchtitle', loadChildren: './matchupdate/matchupdate.module#MatchupdatePageModule' },
   { path: 'useditemaddmore', loadChildren: './useditemaddmore/useditemaddmore.module#UseditemaddmorePageModule' },
   { path: 'useditemupdate/:itemtitle', loadChildren: './useditemupdate/useditemupdate.module#UseditemupdatePageModule' },
+  { path: 'offeraddmore', loadChildren: './offeraddmore/offeraddmore.module#OfferaddmorePageModule' },
+  { path: 'offerupdate/:salestitle', loadChildren: './offerupdate/offerupdate.module#OfferupdatePageModule' },
 ];
 
 @NgModule({

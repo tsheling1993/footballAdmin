@@ -14,13 +14,18 @@ export class OfferPage implements OnInit {
 
   salesTitle : any;
   itemTitle : any;
+  itemPrice : any;
+  itemContact : any;
   itemDetail : any;
+  itemStatus : any;
   uploadDate : any;
   salesDetail : any;
   date : any;
   salesData:any[]=[];
   title:any;
   desc:any;
+  sales:any[]=[];
+  salesList: Array<any[]>;
   selectedFiles: FileList;
   currentUpload: Upload;
   constructor(private fs : AngularFirestore,
@@ -29,58 +34,51 @@ export class OfferPage implements OnInit {
     private datePicker: DatePicker,
     private uploadServ: UploadpicService,
     private menu: MenuController) { }
+
   ngOnInit() {
-  }
 
-  detectSalesFiles(event:any){
-    this.selectedFiles = event.target.files;
-  }
-
-  insertFs(){
-    let basePath:string="/sales";
-    let file = this.selectedFiles.item(0)
-    this.currentUpload = new Upload(file);
-    this.fs.collection(`${basePath}`).doc(`${this.salesTitle}`).set(
+    //for retriving useditem data
+    this.fs.collection('/sales',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
       {
-      salestitle : this.salesTitle,
-      uploaddate : this.uploadDate, 
-      detail : this.salesDetail,
+        res.forEach((doc:any)=>
+      {
+        this.sales.push({
+          salestitle:doc.data().salestitle,
+          uploaddate :doc.data().uploaddate,
+          detail : doc.data().detail,
+        })
+      });
+      })
+      console.log(this.sales);
+  }
+goAddMore(){
+  this.navCtl.navigateForward('/offeraddmore');
+}
+
+async alert(header:string,message:string)
+{
+  const alert=await this.altCtl.create({
+    header:header,
+    message: message,
+    cssClass:'ok',
+    buttons:['OK']
+  });
+  alert.present();
+}
+//for deleting the movie item
+goDelete(salestitle:any){
+  let basePath:string="/";
+  this.fs.collection(`${basePath}`).doc(`${salestitle}`).delete().then(data=>
+    {
+        this.alert("For Information","Deletion successful");
+        this.navCtl.navigateForward('/offer');
     }
-    ).then(data=>
-      {
-        console.log("reach here with data: "+data);
-          this.alert("For Information","Insertion successful");
-          this.navCtl.navigateForward('/sales');
-        console.log(data);
-        this.uploadServ.pushUpload1(this.currentUpload,basePath,this.salesTitle);
-      }
-      )
-  }
-
-  async alert(header:string,message:string)
-  {
-    const alert=await this.altCtl.create({
-      header:header,
-      message: message,
-      cssClass:'ok',
-      buttons:['OK']
-    });
-    alert.present();
-  }
-  pickDate(){
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date =>{
-        let dateArray=date.toString().split(' ');
-        this.uploadDate=dateArray[0]+" "+dateArray[1]+" "+dateArray[2]+" "+dateArray[3]
-        err => console.log('Error occurred while getting date: ', err)
-      }
-    
-      //console.log('Got date: ', date),
-    );
-  }
+    )
+}
+//for updating the item
+goEdit(salestitle : any){
+  console.log(salestitle);
+  this.navCtl.navigateForward('/offerupdate/'+salestitle);
+}
 
 }
