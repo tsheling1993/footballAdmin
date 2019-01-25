@@ -48,6 +48,8 @@ const routes: Routes = [
   { path: 'nightlifeupdate/:title', loadChildren: './nightlifeupdate/nightlifeupdate.module#NightlifeupdatePageModule' },
   { path: 'entertainmentaddmore', loadChildren: './entertainmentaddmore/entertainmentaddmore.module#EntertainmentaddmorePageModule' },
   { path: 'entertainmentupdate/:tilte', loadChildren: './entertainmentupdate/entertainmentupdate.module#EntertainmentupdatePageModule' },
+  { path: 'religionaddmore', loadChildren: './religionaddmore/religionaddmore.module#ReligionaddmorePageModule' },
+  { path: 'religionupdate/:title', loadChildren: './religionupdate/religionupdate.module#ReligionupdatePageModule' },
 ];
 
 @NgModule({
