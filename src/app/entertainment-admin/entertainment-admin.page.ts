@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { UploadpicService } from '../../services/uploadpic/uploadpic.service';
+import { Upload } from '../../models/upload/upload';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-entertainment-admin',
@@ -16,6 +19,7 @@ export class EntertainmentAdminPage implements OnInit {
   rContact : any;
   rLink : any;
   date : any;
+  rData:any[]=[];
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
@@ -25,67 +29,56 @@ export class EntertainmentAdminPage implements OnInit {
   ){}
 
   ngOnInit() {
-  }
-
-  //this is the function for uploading data for Entertainment
-  insertFs(){
-    this.fs.collection('/t_entertainment').add(
+    //for retriving the entertainment data from the database
+    this.fs.collection('/t_entertainment',ref=>ref.orderBy('date', 'desc')).get().subscribe(res=>
       {
-        tilte : this.rTitle,
-        venue : this.rVenue,
-        time : this.rTime,
-        date : this.rDate,
-        contract : this.rContact,
-        detail : this.rLink
-      }
-    ).then(data=>
-      {
-        console.log("reach here with entertainment data: "+data);
-        this.alert("For Information","Insertion of the entertainment data was successful. press ok to exit...")
-        this.navCtl.navigateForward('/musicordance');
+        res.forEach((doc:any)=>
+        {
+          this.rData.push({
+            tilte : doc.data().tilte,
+            venue : doc.data().venue,
+            time : doc.data().time,
+            date : doc.data().date,
+            contact : doc.data().contract,
+            detail : doc.data().detail,
+          })
+        })
       })
+      console.log(this.rData);
   }
 
-  //for the alert
-  async alert(header : string, message : string)
-  {
-    const alert = await this.altCtl.create({
-      header : header,
-      message : message,
-      cssClass : 'ok',
-      buttons : ['OK']
-    });
-    alert.present();
-  }
-
-  //for picking the date from datepicker
-  // pickDate(){
-  //   this.datePicker.show({
-  //     date : new Date(),
-  //     mode : 'date',
-  //     androidTheme : this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
-  //   }).then(date=>
-  //     this.rDate = date, 
-  //     err => console.log('error occur while getting the date', err)
-  //     );
-  //   }
-
-  pickDate(){
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      //androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-      androidTheme : this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
-    }).then(
-      date => 
-      //console.log('Got date: ', date),
-      this.rDate = date,
-      err => console.log('Error occurred while getting date: ', err)
-    );
-  }
-
+  
   openMenu(){
     this.menu.toggle('myMenu');
   }
+goAddMore(){
+  this.navCtl.navigateForward('/entertainmentaddmore');
+}
+
+async alert(header:string,message:string)
+{
+  const alert=await this.altCtl.create({
+    header:header,
+    message: message,
+    cssClass:'ok',
+    buttons:['OK']
+  });
+  alert.present();
+}
+//for deleting the movie item
+goDelete(tilte:any){
+  let basePath:string="/";
+  this.fs.collection(`${basePath}`).doc(`${tilte}`).delete().then(data=>
+    {
+        this.alert("For Information","Deletion successful");
+        this.navCtl.navigateForward('/musicordance');
+    }
+    )
+}
+//for updating the item
+goEdit(tilte : any){
+  console.log(tilte);
+  this.navCtl.navigateForward('/entertainmentupdate/'+tilte);
+}
 
   }

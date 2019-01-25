@@ -46,6 +46,8 @@ const routes: Routes = [
   { path: 'offerupdate/:salestitle', loadChildren: './offerupdate/offerupdate.module#OfferupdatePageModule' },
   { path: 'nightlifeaddmore', loadChildren: './nightlifeaddmore/nightlifeaddmore.module#NightlifeaddmorePageModule' },
   { path: 'nightlifeupdate/:title', loadChildren: './nightlifeupdate/nightlifeupdate.module#NightlifeupdatePageModule' },
+  { path: 'entertainmentaddmore', loadChildren: './entertainmentaddmore/entertainmentaddmore.module#EntertainmentaddmorePageModule' },
+  { path: 'entertainmentupdate/:tilte', loadChildren: './entertainmentupdate/entertainmentupdate.module#EntertainmentupdatePageModule' },
 ];
 
 @NgModule({
