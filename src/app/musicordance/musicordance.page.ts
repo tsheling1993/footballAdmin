@@ -40,12 +40,12 @@ export class MusicordancePage implements OnInit {
         res.forEach((doc:any)=>
         {
           this.rData.push({
-            title : doc.data().title,
+            tilte : doc.data().tilte,
             venue : doc.data().venue,
             time : doc.data().time,
             date : doc.data().date,
             contact : doc.data().contract,
-            link : doc.data().link,
+            detail : doc.data().detail,
           })
         })
       })

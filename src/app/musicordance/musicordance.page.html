@@ -12,27 +12,37 @@
 <!-- <ion-tabs>
 
     <ion-tab tab="hello"> -->
-    <ion-grid>
+      <ion-card>
+        <ion-card-content>
+            <img src="assets/img/ent2.jpg" height=30px; width=500px;>
+            <img src="assets/img/ent1.jpg" height=100px; width=500px;>
+        </ion-card-content>
+      </ion-card>
+        <ion-card *ngFor='let data of rData'>
+            <ion-card-content style="font-family: 'Times New Roman', Times, serif;">
+                <div style="color:dodgerblue; text-align: right"><ion-icon name="calendar"></ion-icon>{{data.date.toDate() | date:"mediumDate"}}</div>
+                <!-- <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br> -->
+                <!-- <span style="color:teal;text-align: right"><b>Title:</b></span>&nbsp;<span style="color:dodgerblue"><b>{{data.tilte}}</b></span><br> -->
+                <div style="color:dodgerblue; text-align: right"><b>Title:&nbsp;</b><b>{{data.tilte}}</b></div>
+                <span style="color:teal;"><ion-icon name="pin"></ion-icon><b>Venue:</b></span>&nbsp;<span style="color:black;">{{data.venue}}</span><br>
+                <span style="color:teal;"><ion-icon name="time"></ion-icon><b>Time:</b></span>&nbsp;<span style="color:black;">{{data.time}}</span><br>
+                <span style="color:teal;"><ion-icon name="call"></ion-icon><b>Contact:</b></span>&nbsp;<span style="color:black;">{{data.contact}}</span><br>
+                <span style="color:teal;"><ion-icon name="more"></ion-icon><b>Details:</b></span>&nbsp;<span style="color:black;">{{data.detail}}</span><br>
+            </ion-card-content>
+          </ion-card>
+    <!-- <ion-grid> -->
       <!-- for displaying the entertainment data -->
-      <!-- <ion-list>
-          <ion-item>
-            <ion-grid>
-            <ion-row>
-                <ion-col size="12">
-                  <img src="assets/img/ent.jpg" height=160px; width=400px;>
-                </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>  
-    </ion-list> -->
+    <!-- <img src="assets/img/ent2.jpg" height=30px; width=500px;>
+    <img src="assets/img/ent1.jpg" height=100px; width=500px;>
     <div  class="title">
       <ion-list *ngFor='let data of rData' class="title">
             <ion-grid>
             <ion-item>
             <ion-row>
               <ion-col size="12">
-                  <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br>
-                  <span><b>Title:&nbsp;</b>{{data.title}}</span><br>
+                  <div style="color:dodgerblue; text-align: right">{{data.date.toDate() | date:"mediumDate"}}</div> -->
+                  <!-- <span><b>Date:&nbsp;</b><span>{{data.date.toDate() | date:"mediumDate"}}</span></span><br> -->
+                  <!-- <span><b>Title:&nbsp;</b>{{data.title}}</span><br>
                   <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
                   <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
                   <span><b>Contact:&nbsp;</b>{{data.contact}}</span><br>
@@ -43,7 +53,7 @@
           </ion-grid>  
       </ion-list>
     </div>
-    </ion-grid>
+    </ion-grid> -->
     <!-- </ion-tab> -->
     <!-- <ion-tab tab="world">
         <ion-list>

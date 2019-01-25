@@ -36,7 +36,7 @@ export class EntertainmentAdminPage implements OnInit {
         time : this.rTime,
         date : this.rDate,
         contract : this.rContact,
-        link : this.rLink
+        detail : this.rLink
       }
     ).then(data=>
       {
