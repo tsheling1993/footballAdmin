@@ -9,32 +9,19 @@
   </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-grid>
-          <ion-row>
-              <ion-col size="12">
-                <img src="assets/img/religion.jpg" height=100px; width=400px;>
-              </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>  
-  </ion-list>
-  <div  class="title">
-    <ion-list *ngFor='let data of rData' class="title">
-          <ion-grid>
-          <ion-item>
-          <ion-row>
-            <ion-col size="12">
-                <span><b>Date:&nbsp;</b><span style="color:dodgerblue">{{data.date.toDate() | date:"mediumDate"}}</span></span><br>
-                <span><b>Title:&nbsp;</b>{{data.title}}</span><br>
-                <span><b>Time:&nbsp;</b>{{data.time}}</span><br>
-                <span><b>Venue:&nbsp;</b>{{data.venue}}</span><br>
-                <span><b>Detail:&nbsp;</b>{{data.detail}}</span><br>
-            </ion-col>
-          </ion-row>
-        </ion-item>
-        </ion-grid>  
-    </ion-list>
-  </div>
+    <ion-card>
+      <ion-card-content>
+          <img src="assets/img/religion.jpg" height=100px; width=400px;>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngFor='let data of rData'>
+      <ion-card-content>
+          <div style="color:dodgerblue; text-align: right"><ion-icon name="calendar"></ion-icon>{{data.date.toDate() | date:"mediumDate"}}</div>
+          <div style="color:dodgerblue;font-family: 'Times New Roman', Times, serif;"><b>Title:&nbsp;</b>{{data.title}}</div>
+          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="time"></ion-icon><b>Time:</b></span>&nbsp;<span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.time}}</span><br>
+          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="pin"></ion-icon><b>Venue:</b></span>&nbsp;<span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.venue}}</span><br>
+          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="more"></ion-icon><b>Details:</b></span>&nbsp;<span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.detail}}</span><br>
+      </ion-card-content>
+    </ion-card>    
 </ion-content>

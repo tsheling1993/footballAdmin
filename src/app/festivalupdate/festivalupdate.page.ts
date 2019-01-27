@@ -4,27 +4,26 @@ import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @Component({
-  selector: 'app-festival-admin',
-  templateUrl: './festival-admin.page.html',
-  styleUrls: ['./festival-admin.page.scss'],
+  selector: 'app-festivalupdate',
+  templateUrl: './festivalupdate.page.html',
+  styleUrls: ['./festivalupdate.page.scss'],
 })
-export class FestivalAdminPage implements OnInit {
+export class FestivalupdatePage implements OnInit {
+
   rTitle : any;
   rDate : any;
   rTime : any;
   rVenue : any;
   rDetail : any;
   date : any;
-  rData:any[]=[];
+  rData : any[] = [];
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
     private datePicker: DatePicker,
     private menu: MenuController
-  ) { 
-      
-  }
+  ) { }
 
   ngOnInit() {
     //for getting the data of festival from the firebase
@@ -39,15 +38,35 @@ export class FestivalAdminPage implements OnInit {
           venue:doc.data().venue,
           detail : doc.data().detail,
         })
+        this.rTitle = doc.data().title;
+        this.rDate = doc.data().date;
+        this.rTime = doc.data().time;
+        this.rVenue = doc.data().venue;
+        this.rDetail = doc.data().detail;
       })
       })
       console.log(this.rData);
   }
 
-  goAddMore(){
-    this.navCtl.navigateForward('/festivaladdmore');
+  //for uploading the the data
+  insertFs(){
+    this.fs.collection('/t_festival').add(
+      {
+      title : this.rTitle,
+      date : this.rDate,
+      time : this.rTime,
+      venue : this.rVenue,
+      detail : this.rDetail 
+    }
+    ).then(data=>
+      {
+        console.log("reach here with data: "+data);
+          this.alert("For Information","Insertion successful");
+          this.navCtl.navigateForward('/nationalfest');
+      }
+      )
   }
-  
+
   async alert(header:string,message:string)
   {
     const alert=await this.altCtl.create({
@@ -58,19 +77,21 @@ export class FestivalAdminPage implements OnInit {
     });
     alert.present();
   }
-  //for deleting the movie item
-  goDelete(title:any){
-    let basePath:string="/";
-    this.fs.collection(`${basePath}`).doc(`${title}`).delete().then(data=>
-      {
-          this.alert("For Information","Deletion successful");
-          this.navCtl.navigateForward('/nationalfest');
-      }
-      )
+  pickDate(){
+    this.datePicker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+    }).then(
+      date => 
+      //console.log('Got date: ', date),
+      this.rDate = date,
+      err => console.log('Error occurred while getting date: ', err)
+    );
   }
-  //for updating the item
-  goEdit(title : any){
-    console.log(title);
-    this.navCtl.navigateForward('/festivalupdate/'+title);
+
+  openMenu(){
+    this.menu.toggle('myMenu');
   }
+
 }

@@ -50,6 +50,8 @@ const routes: Routes = [
   { path: 'entertainmentupdate/:tilte', loadChildren: './entertainmentupdate/entertainmentupdate.module#EntertainmentupdatePageModule' },
   { path: 'religionaddmore', loadChildren: './religionaddmore/religionaddmore.module#ReligionaddmorePageModule' },
   { path: 'religionupdate/:title', loadChildren: './religionupdate/religionupdate.module#ReligionupdatePageModule' },
+  { path: 'festivaladdmore', loadChildren: './festivaladdmore/festivaladdmore.module#FestivaladdmorePageModule' },
+  { path: 'festivalupdate/:title', loadChildren: './festivalupdate/festivalupdate.module#FestivalupdatePageModule' },
 ];
 
 @NgModule({
