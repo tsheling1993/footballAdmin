@@ -48,7 +48,6 @@ export class MovieupdatePage implements OnInit {
     }
 
   ngOnInit() {
-    console.log("movie title: "+this.movietitle);
   }
 
   loadfromFirebase(){
@@ -67,12 +66,17 @@ export class MovieupdatePage implements OnInit {
           price : res.data().price,
           contact : res.data().contact,
           tailor : res.data().tailor,
-          url: res.data().url
+          url: res.data().url,
         })
-        // this.movieList.push(this.movie);
-      // });
+        this.movieTitle = res.data().movietitle;
+        this.movieVenue = res.data().venue;
+        this.movieTime = res.data().time;
+        this.startDate = res.data().startdate;
+        this.endDate = res.data().enddate;
+        this.moviePrice = res.data().price;
+        this.movieContact = res.data().contact;
+        this.movieTailor = res.data().tailor;  
       })
-      console.log(this.movie);
   }
 
   openMenu(){

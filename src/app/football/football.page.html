@@ -40,16 +40,16 @@
 
     <ion-tab tab="match">
       <ion-content padding overflow-scroll="false">
-        <ion-list *ngFor="let data of match">
+        <!-- <ion-list *ngFor="let data of match">
         <ion-grid>
           <ion-row>
             <ion-col class="date">
-                <ion-badge color="success"  class="font-style"><b>{{data.matchtitle}}</b></ion-badge>
-                <div style="color:dodgerblue; text-align: right">{{data.matchdate}}, {{data.matchtime}}</div>
+                <ion-badge color="success"  class="font-style"><b><ion-icon name="football"></ion-icon>{{data.matchtitle}}</b></ion-badge>
+                <div style="color:dodgerblue; text-align: right"><ion-icon name="calendar"></ion-icon>{{data.matchdate}}, {{data.matchtime}}</div>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col  class="date"><span style="color:dodgerblue; text-align: right"><b>Venue:&nbsp;</b></span><span style="color:dodgerblue; text-align: right">{{data.matchvenue}}</span></ion-col>
+            <ion-col  class="date"><span style="color:dodgerblue; text-align: right"><ion-icon name="pin"></ion-icon><b>Venue:&nbsp;</b></span>{{data.matchvenue}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col size="5" class="font-style">
@@ -64,16 +64,40 @@
           </ion-row>
           <hr>
         </ion-grid>
-       </ion-list>
+       </ion-list> -->
+
+       <ion-card *ngFor="let data of match">
+         <ion-card-content>
+           <div class="date">
+            <ion-badge color="success"  class="font-style"><b><ion-icon name="football"></ion-icon>{{data.matchtitle}}</b></ion-badge>
+            <div style="color:dodgerblue; text-align: right"><ion-icon name="calendar"></ion-icon>{{data.matchdate}}, {{data.matchtime}}</div>
+          </div>
+          <div class="date"><span style="color:dodgerblue; text-align: right"><ion-icon name="pin"></ion-icon><b>Venue:&nbsp;</b></span>{{data.matchvenue}}</div>
+         <ion-grid>
+           <ion-row>
+             <ion-col size="5" class="font-style">
+                <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.matchteam1}}<ion-icon color="success" name="football"></ion-icon></span>
+             </ion-col>
+             <ion-col size="2">
+                <ion-badge color="secondary"  class="font-style">{{data.matchsore}}</ion-badge>
+             </ion-col>
+             <ion-col size="5"  class="font-style">
+                <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.matchteam2}}<ion-icon color="success" name="football"></ion-icon></span>
+             </ion-col>
+           </ion-row>
+         </ion-grid>
+        </ion-card-content>
+       </ion-card>
+
       </ion-content>
     </ion-tab>
 
     <ion-tab-bar slot="top">
       <ion-tab-button tab="ground_status">
-        <ion-label style="font-size: 12pt;">Ground Status</ion-label>
+        <ion-label style="font-size: 12pt; font-family: 'Times New Roman', Times, serif;">Ground Status</ion-label>
       </ion-tab-button>
       <ion-tab-button tab="match">
-        <ion-label style="font-size: 12pt;">Match</ion-label>
+        <ion-label style="font-size: 12pt; font-family: 'Times New Roman', Times, serif;">Match</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

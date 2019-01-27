@@ -12,64 +12,75 @@
   <ion-tabs>
     <ion-tab tab="offer">
       <ion-content overflow-scroll="false">
-    <ion-grid>
       <!-- for displaying the offer data -->
-      <ion-list *ngFor='let data of sales' class="title">
-        <ion-grid>
-          <ion-row>
-              <ion-col size="12">
-                  <b>Title:&nbsp;&nbsp;</b>{{data.salestitle}}<br><br>
-                  <img src="{{data.url}}" height=150px; width=400px;>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="12">
-                <div style="text-align: right; color:dodgerblue">{{data.uploaddate}}</div>
-                <div style="color:teal"><b>Details:</b></div>{{data.detail}}<br>
-            </ion-col>
-          </ion-row>
-        </ion-grid>  
+      <ion-list *ngFor='let data of sales'>
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                  <ion-col size="12">
+                      <!-- <b>Title:&nbsp;&nbsp;</b>{{data.salestitle}}<br><br> -->
+                      <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><b>Title:&nbsp;</b></span>
+                      <span style="color:black;font-family: 'Times New Roman', Times, serif;"><b>{{data.salestitle}}</b></span>
+                      <img src="{{data.url}}" height=150px; width=400px;>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                    <div style="text-align: right; color:dodgerblue; font-family: 'Times New Roman', Times, serif;"><ion-icon name="calendar"></ion-icon>{{data.uploaddate}}</div>
+                    <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="more"></ion-icon><b>Details:</b>&nbsp;&nbsp;</span>
+                    <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.detail}}</span><br>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content> 
+        </ion-card> 
       </ion-list>
-    </ion-grid>
-  </ion-content>
+    </ion-content>
     </ion-tab>
     <!-- for displaying the useditem data -->
     <ion-tab tab="useditem">
         <ion-content overflow-scroll="false">
-      <ion-grid>
-        <ion-list *ngFor='let data of items' class="title">
-          <ion-grid>
+        <ion-list *ngFor='let data of items'>
           
-            <ion-row>
-                <ion-col size="12">
-                    <div><span style="color:teal"><b>Type:&nbsp;</b></span>{{data.itemtitle}}</div>
-                    <ion-slides pager="true" [options]="slideOpts">
-                      <ion-slide><img src="{{data.url1}}" style="height:150px; width:400px" (click)="viewImg1(data.url1)"></ion-slide>
-                      <ion-slide><img src="{{data.url2}}" style="height:150px; width:400px" (click)="viewImg2(data.url2)"></ion-slide>
-                      <ion-slide><img src="{{data.url3}}" style="height:150px; width:400px" (click)="viewImg3(data.url3)"></ion-slide>
-                    </ion-slides>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="12">
-                  <div style="text-align: right; color:dodgerblue">{{data.uploaddate}}</div>
-                  <div><span style="color:teal"><b>Price:&nbsp;&nbsp;</b></span>{{data.itemprice}}</div>
-                  <div><span style="color:teal"><b>Contact:&nbsp;&nbsp;</b></span>{{data.itemcontact}}</div>
-                  <div><span style="color:teal"><b>Details:&nbsp;&nbsp;</b></span>{{data.detail}}</div>
-                  <div><span style="color:teal"><b>Status:&nbsp;&nbsp;</b></span><ion-badge color="secondary">{{data.itemstatus}}</ion-badge></div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>  
-        </ion-list>
-      </ion-grid>
-    </ion-content>
-    </ion-tab>
+            <ion-card>
+              <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <div><span style="color:teal;font-family: 'Times New Roman', Times, serif;"><b>Type:&nbsp;</b></span>
+                              <span style="color:black;font-family: 'Times New Roman', Times, serif;"><b>{{data.itemtitle}}</b></span></div>
+                            <ion-slides pager="true" [options]="slideOpts">
+                              <ion-slide><img src="{{data.url1}}" style="height:150px; width:400px" (click)="viewImg1(data.url1)"></ion-slide>
+                              <ion-slide><img src="{{data.url2}}" style="height:150px; width:400px" (click)="viewImg2(data.url2)"></ion-slide>
+                              <ion-slide><img src="{{data.url3}}" style="height:150px; width:400px" (click)="viewImg3(data.url3)"></ion-slide>
+                            </ion-slides>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="12">
+                          <div style="text-align: right; color:dodgerblue;font-family: 'Times New Roman', Times, serif;"><ion-icon name="calendar"></ion-icon>{{data.uploaddate}}</div>
+                          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="pricetags"></ion-icon><b>Price:&nbsp;&nbsp;</b></span>
+                          <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.itemprice}}</span><br>
+                          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="call"></ion-icon><b>Contact:&nbsp;&nbsp;</b></span>
+                          <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.itemcontact}}</span><br>
+                          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="more"></ion-icon><b>Details:&nbsp;&nbsp;</b></span>
+                          <span style="color:black;font-family: 'Times New Roman', Times, serif;">{{data.detail}}</span><br>
+                          <span style="color:teal;font-family: 'Times New Roman', Times, serif;"><ion-icon name="checkmark-circle-outline"></ion-icon><b>Status:</b>&nbsp;&nbsp;<ion-badge color="secondary">{{data.itemstatus}}</ion-badge></span>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                  </ion-card-content>
+                </ion-card>  
+          </ion-list>
+      </ion-content>
+      </ion-tab>
     <ion-tab-bar slot="top">
         <ion-tab-button tab="offer">
-          <ion-label style="font-size: 12pt;">Offers</ion-label>
+          <ion-label style="font-size: 12pt;font-family: 'Times New Roman', Times, serif;">Offers</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="useditem">
-          <ion-label style="font-size: 12pt;">Used Items</ion-label>
+          <ion-label style="font-size: 12pt;font-family: 'Times New Roman', Times, serif;">Used Items</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
 </ion-tabs>

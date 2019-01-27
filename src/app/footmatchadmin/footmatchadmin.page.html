@@ -8,20 +8,19 @@
     </ion-toolbar>
   </ion-header>
   <ion-content padding>
-      <ion-button class="btn-style" (click)="goAddMore()" color="secondary">Add more...</ion-button>
       <ion-list *ngFor='let data of match'>
             <ion-row>
                 <ion-col size="6">
-                    {{data.matchtitle}}
+                    <div class="btn-style">{{data.matchtitle}} {{data.matchtime}} {{data.matchdate}}</div>
                 </ion-col>
                 <ion-col size="3">
                     <ion-button class="btnstyle" (click)="goDelete(data.matchtitle)" color="danger">Delete</ion-button>
                 </ion-col>
                 <ion-col size="3">
-                    <ion-button class="btnstyle" (click)="goEdit(data.matchtitle)" color="secondary">Edit</ion-button>
+                    <ion-button class="btnstyle" (click)="goEdit(data.matchtitle+data.matchdate+data.matchtime)" color="secondary">Edit</ion-button>
                 </ion-col>
             </ion-row>   
       </ion-list>
-      <ion-button (click)="goAddMore()" color="secondary" class="btn-style">Add more...</ion-button>
+      <p button="true" (click)="goAddMore()" style="color:dodgerblue">Add more...</p>
   </ion-content>
   

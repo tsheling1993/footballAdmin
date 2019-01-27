@@ -34,7 +34,7 @@ export class SalesPage implements OnInit {
     private photoViewer: PhotoViewer
   )
   { 
-    this.fs.collection('/sales',ref=>ref.orderBy('createdAt', 'desc')).get().subscribe(res=>
+    this.fs.collection('/sales',ref=>ref.orderBy('createdAt','desc')).get().subscribe(res=>
     {
       res.forEach((doc:any)=>
     {

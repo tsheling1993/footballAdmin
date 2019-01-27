@@ -10,7 +10,7 @@
 
 <ion-content padding>
 <!-- for inserting movie details -->
-    <ion-grid>
+    <!-- <ion-grid>
         <ion-row>
           <ion-col size="4">
             Date:
@@ -56,5 +56,21 @@
           <ion-button color="secondary" expand="full" (click)="insertFs()">upload</ion-button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
+
+
+    <ion-list *ngFor='let data of rData'>
+        <ion-row>
+            <ion-col size="6">
+                {{data.title}}
+            </ion-col>
+            <ion-col size="3">
+                <ion-button class="btnstyle" (click)="goDelete(data.title)" color="danger">Delete</ion-button>
+            </ion-col>
+            <ion-col size="3">
+                <ion-button class="btnstyle" (click)="goEdit(data.title)" color="secondary">Edit</ion-button>
+            </ion-col>
+        </ion-row>   
+    </ion-list>
+    <p button="true" (click)="goAddMore()" style="color:dodgerblue">Add more...</p>
 </ion-content>

@@ -15,36 +15,39 @@ export class FestivalAdminPage implements OnInit {
   rVenue : any;
   rDetail : any;
   date : any;
+  rData:any[]=[];
   constructor(
     private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
     private datePicker: DatePicker,
     private menu: MenuController
-  ) { }
+  ) { 
+      
+  }
 
   ngOnInit() {
+    //for getting the data of festival from the firebase
+    this.fs.collection('/t_festival').get().subscribe(res=>
+      {
+        res.forEach((doc:any)=>
+      {
+        this.rData.push({
+          title:doc.data().title,
+          date :doc.data().date,
+          time : doc.data().time,
+          venue:doc.data().venue,
+          detail : doc.data().detail,
+        })
+      })
+      })
+      console.log(this.rData);
   }
 
-  //for uploading the the data
-  insertFs(){
-    this.fs.collection('/t_festival').add(
-      {
-      title : this.rTitle,
-      date : this.rDate,
-      time : this.rTime,
-      venue : this.rVenue,
-      detail : this.rDetail 
-    }
-    ).then(data=>
-      {
-        console.log("reach here with data: "+data);
-          this.alert("For Information","Insertion successful");
-          this.navCtl.navigateForward('/nationalfest');
-      }
-      )
+  goAddMore(){
+    this.navCtl.navigateForward('/festivaladdmore');
   }
-
+  
   async alert(header:string,message:string)
   {
     const alert=await this.altCtl.create({
@@ -55,20 +58,19 @@ export class FestivalAdminPage implements OnInit {
     });
     alert.present();
   }
-  pickDate(){
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date => 
-      //console.log('Got date: ', date),
-      this.rDate = date,
-      err => console.log('Error occurred while getting date: ', err)
-    );
+  //for deleting the movie item
+  goDelete(title:any){
+    let basePath:string="/";
+    this.fs.collection(`${basePath}`).doc(`${title}`).delete().then(data=>
+      {
+          this.alert("For Information","Deletion successful");
+          this.navCtl.navigateForward('/nationalfest');
+      }
+      )
   }
-
-  openMenu(){
-    this.menu.toggle('myMenu');
+  //for updating the item
+  goEdit(title : any){
+    console.log(title);
+    this.navCtl.navigateForward('/festivalupdate/'+title);
   }
 }

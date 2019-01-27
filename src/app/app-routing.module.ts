@@ -40,6 +40,18 @@ const routes: Routes = [
   { path: 'footmatchadmin', loadChildren: './footmatchadmin/footmatchadmin.module#FootmatchadminPageModule' },
   { path: 'footmatchaddmore', loadChildren: './footmatchaddmore/footmatchaddmore.module#FootmatchaddmorePageModule' },
   { path: 'matchupdate/:matchtitle', loadChildren: './matchupdate/matchupdate.module#MatchupdatePageModule' },
+  { path: 'useditemaddmore', loadChildren: './useditemaddmore/useditemaddmore.module#UseditemaddmorePageModule' },
+  { path: 'useditemupdate/:itemtitle', loadChildren: './useditemupdate/useditemupdate.module#UseditemupdatePageModule' },
+  { path: 'offeraddmore', loadChildren: './offeraddmore/offeraddmore.module#OfferaddmorePageModule' },
+  { path: 'offerupdate/:salestitle', loadChildren: './offerupdate/offerupdate.module#OfferupdatePageModule' },
+  { path: 'nightlifeaddmore', loadChildren: './nightlifeaddmore/nightlifeaddmore.module#NightlifeaddmorePageModule' },
+  { path: 'nightlifeupdate/:title', loadChildren: './nightlifeupdate/nightlifeupdate.module#NightlifeupdatePageModule' },
+  { path: 'entertainmentaddmore', loadChildren: './entertainmentaddmore/entertainmentaddmore.module#EntertainmentaddmorePageModule' },
+  { path: 'entertainmentupdate/:tilte', loadChildren: './entertainmentupdate/entertainmentupdate.module#EntertainmentupdatePageModule' },
+  { path: 'religionaddmore', loadChildren: './religionaddmore/religionaddmore.module#ReligionaddmorePageModule' },
+  { path: 'religionupdate/:title', loadChildren: './religionupdate/religionupdate.module#ReligionupdatePageModule' },
+  { path: 'festivaladdmore', loadChildren: './festivaladdmore/festivaladdmore.module#FestivaladdmorePageModule' },
+  { path: 'festivalupdate/:title', loadChildren: './festivalupdate/festivalupdate.module#FestivalupdatePageModule' },
 ];
 
 @NgModule({

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertController, NavController, MenuController } from '@ionic/angular';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { UploadpicService } from '../../services/uploadpic/uploadpic.service';
+import { Upload } from '../../models/upload/upload';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-nightlifeadmin',
@@ -17,60 +20,60 @@ export class NightlifeadminPage implements OnInit {
   rPrice : any;
   rDetail : any;
   date : any;
-  constructor(
-    private fs : AngularFirestore,
+  rData:any[]=[];
+  constructor(private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
     private datePicker: DatePicker,
-    private menu: MenuController
-  ) {}
+    private uploadServ: UploadpicService,
+    private menu: MenuController) { }
+
   ngOnInit() {
-  }
-  openMenu(){
-    this.menu.toggle('myMenu');
-  }
-    //for uploading the the data
-    insertFs(){
-      this.fs.collection('/t_nightlife').add(
-        {
-        date : this.rDate,
-        title : this.rTitle,
-        time : this.rTime,
-        venue : this.rVenue,
-        price : this.rPrice,
-        detail : this.rDetail 
-      }
-      ).then(data=>
-        {
-          console.log("reach here with data: "+data);
-            this.alert("For Information","Insertion successful");
-            this.navCtl.navigateForward('/nightlife');
-        }
-        )
-    }
-  
-    async alert(header:string,message:string)
-    {
-      const alert=await this.altCtl.create({
-        header:header,
-        message: message,
-        cssClass:'ok',
-        buttons:['OK']
+
+    this.fs.collection('/t_nightlife',ref=>ref.orderBy('date', 'desc')).get().subscribe(res=>
+      {
+        res.forEach((doc:any)=>
+      {
+        this.rData.push({
+          date :doc.data().date,
+          title:doc.data().title,
+          time : doc.data().time,
+          venue:doc.data().venue,
+          price:doc.data().price,
+          detail : doc.data().detail,
+        })
       });
-      alert.present();
+      })
+      console.log(this.rData);
+  }
+
+goAddMore(){
+  this.navCtl.navigateForward('/nightlifeaddmore');
+}
+
+async alert(header:string,message:string)
+{
+  const alert=await this.altCtl.create({
+    header:header,
+    message: message,
+    cssClass:'ok',
+    buttons:['OK']
+  });
+  alert.present();
+}
+//for deleting the movie item
+goDelete(title:any){
+  let basePath:string="/";
+  this.fs.collection(`${basePath}`).doc(`${title}`).delete().then(data=>
+    {
+        this.alert("For Information","Deletion successful");
+        this.navCtl.navigateForward('/nightlife');
     }
-  
-  
-    pickDate(){
-      this.datePicker.show({
-        date: new Date(),
-        mode: 'date',
-        androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-      }).then(
-        date => 
-        //console.log('Got date: ', date),
-        this.rDate = date,
-        err => console.log('Error occurred while getting date: ', err)
-      );
-    }
+    )
+}
+//for updating the item
+goEdit(title : any){
+  console.log(title);
+  this.navCtl.navigateForward('/nightlifeupdate/'+title);
+}
 }

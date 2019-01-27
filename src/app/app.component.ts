@@ -71,4 +71,8 @@ export class AppComponent {
     this.menu.toggle('myMenu');
    this.navCtrl.navigateForward('/aboutus');
   }
+  goHome(){
+    this.menu.toggle('myMenu');
+   this.navCtrl.navigateForward('/home');
+  }
 }

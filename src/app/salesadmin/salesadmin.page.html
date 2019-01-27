@@ -8,6 +8,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-    <ion-button (click)="goOffer()" color="secondary" expand="full">For offers upload</ion-button><br>
-    <ion-button (click)="goUsedItem()" color="secondary" expand="full">For used Item upload</ion-button>
+    <ion-list>
+      <ion-item class="contact-special" button="true" (click)="goOffer()">
+        <p>For offers upload</p>
+      </ion-item> 
+      <ion-item class="contact-special" button="true" (click)="goUsedItem()">
+          <p>For used Item upload</p>
+        </ion-item>
+  </ion-list>
 </ion-content>

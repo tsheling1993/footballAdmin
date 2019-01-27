@@ -62,6 +62,14 @@ export class MatchupdatePage implements OnInit {
          matchtime:res.data().matchtime,
          matchdate:res.data().matchdate
        })
+       this.matchTitle = res.data().matchtitle;
+       this.matchTeam1 = res.data().matchteam1;
+       this.matchTeam2 = res.data().matchteam2;
+       this.matchVenue = res.data().matchvenue;
+       this.matchScore = res.data().matchsore;
+       this.matchTime = res.data().matchtime;
+       this.matchDate = res.data().matchdate;       
+      
        console.log(this.match);;
      })
  }
@@ -73,7 +81,7 @@ export class MatchupdatePage implements OnInit {
  goUpdate(){
    let basePath:string="/t_football_match";
   
-   this.fs.collection(`${basePath}`).doc(`${this.matchTitle}`).update(
+   this.fs.collection(`${basePath}`).doc(`${this.matchTitle+this.matchDate+this.matchTime}`).update(
      {
      matchtitle : this.matchTitle,
      matchteam1 : this.matchTeam1,
@@ -89,7 +97,7 @@ export class MatchupdatePage implements OnInit {
          this.alert("For Information","update successful");
          this.navCtl.navigateForward('/football');
        console.log(data);
-       this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
+       //this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
      }
      )
      

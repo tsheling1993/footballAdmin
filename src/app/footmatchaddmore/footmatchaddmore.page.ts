@@ -79,6 +79,7 @@ export class FootmatchaddmorePage implements OnInit {
           this.alert("For Information","Insertion successful");
           this.navCtl.navigateForward('/football');
         console.log(data);
+       // this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
       }
       )
   }
