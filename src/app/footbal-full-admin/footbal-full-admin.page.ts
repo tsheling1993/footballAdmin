@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController, MenuController, LoadingController } from '@ionic/angular';
+import { AlertController, NavController, MenuController, LoadingController, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-footbal-full-admin',
   templateUrl: './footbal-full-admin.page.html',
@@ -8,6 +8,8 @@ import { AlertController, NavController, MenuController, LoadingController } fro
 })
 export class FootbalFullAdminPage implements OnInit {
   
+  public date: string = new Date().toISOString();
+
   time_all: boolean = true;  
   time_8to10am: boolean;
   time_10to12am: boolean;
@@ -95,7 +97,9 @@ export class FootbalFullAdminPage implements OnInit {
     private fs : AngularFirestore,
     private menu: MenuController,
     public alertController: AlertController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public toastController: ToastController,
+    private navCtl : NavController
   ) { 
     //this.presentLoading();
     this.loadFromFirestoreMonday();
@@ -105,7 +109,9 @@ export class FootbalFullAdminPage implements OnInit {
     this.loadFromFirestoreFriday();
     this.loadFromFirestoreSaturday();
     this.loadFromFirestoreSunday();
-    //this.loadingController.dismiss();      
+    //this.loadingController.dismiss();    
+    
+    this.getDay();
   }
 
   ngOnInit() {
@@ -113,6 +119,77 @@ export class FootbalFullAdminPage implements OnInit {
 
   openMenu(){
     this.menu.toggle('myMenu');
+  }
+
+  today: string;
+
+  monColor: string = "green";
+  tueColor: string = "green";
+  wedColor: string = "green";
+  thuColor: string = "green";
+  friColor: string = "green";
+  satColor: string = "green";
+  sunColor: string = "green";
+
+  //to show date on current day
+  monDate: boolean = false;
+  tueDate: boolean = false;
+  wedDate: boolean = false;
+  thuDate: boolean = false;
+  friDate: boolean = false;
+  satDate: boolean = false;
+  sunDate: boolean = false;
+
+  getDay(){
+    let currentDate = new Date();
+    let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    this.today = weekdays[currentDate.getDay()];
+    console.log("Day: "+this.today);
+
+    //this.today = "sunday"
+    //change color of dat text
+    if(this.today == "monday"){
+      this.monDate = true;
+    }
+    else if(this.today == "tuesday"){
+      this.monColor = "blue";
+      this.tueDate = true;
+    }
+    else if(this.today == "wednesday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedDate = true;
+    }
+    else if(this.today == "thursday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuDate = true;
+    }
+    else if(this.today == "friday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friDate = true;
+    }
+    else if(this.today == "saturday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satDate = true;
+    }
+    else if(this.today == "sunday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satColor = "blue";
+      this.sunDate = true;
+    }
   }
 
   goDay(day:any){
@@ -639,6 +716,14 @@ export class FootbalFullAdminPage implements OnInit {
       });
       })
       console.log(this.changFootMonData);
+      setTimeout(() => {
+        console.log("value="+this.mon_8to10am);      
+        if(this.mon_8to10am == undefined){
+          console.log("No Internet Connection");
+          this.presentToast();
+          this.navCtl.navigateForward('/footballAdmin');
+        }      
+    }, 4000);
   }
 
   loadFromFirestoreTuesday(){
@@ -795,5 +880,13 @@ export class FootbalFullAdminPage implements OnInit {
         });
         })
         console.log(this.changFootSunData);
+    }
+
+    async presentToast() {
+      const toast = await this.toastController.create({
+        message: 'No Internet Connection or is too Weak!',
+        duration: 2000
+      });
+      toast.present();
     }
 }

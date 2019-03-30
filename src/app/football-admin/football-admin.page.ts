@@ -34,10 +34,10 @@ export class FootballAdminPage implements OnInit {
     this.navCtl.navigateForward('/footbalFullAdmin');
   }
 
-  goAdminFutsal(){
-    this.navCtl.navigateForward('/footbalFutsalAdmin');    
+  matchupdate(){
+    this.navCtl.navigateForward('/footmatchadmin');    
   }
-  gomatch(){
-    this.navCtl.navigateForward('/footmatchadmin');
+  viewGround(){
+    this.navCtl.navigateForward('/football');    
   }
 }

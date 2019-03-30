@@ -11,6 +11,7 @@ import { UploadTask } from '@angular/fire/storage/interfaces';
 import { finalize } from 'rxjs/operators';
 import { stringify } from '@angular/compiler/src/util';
 import { UploadMo } from '../../models/upload/uploadm.model';
+import { UploadL } from '../../models/upload/uploadl.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,9 @@ export class UploadpicService {
   url1:string;
   url2:string;
   url3:string;
+  urllogo1 : string;
+  urllogo2 : string;
+
 
   constructor(private fstorage:AngularFireStorage,
   private fs:AngularFirestore) { }
@@ -36,6 +40,13 @@ export class UploadpicService {
     url1:undefined,
     url2:undefined,
     url3:undefined,
+    createdAt:''
+  };
+  uploadFs2:UploadL={
+    name1:'',
+    name2:'',
+    urllogo1 : undefined,
+    urllogo2 : undefined,
     createdAt:''
   };
   uploads: AngularFirestoreDocument<Upload[]>;
@@ -162,5 +173,73 @@ saveFileData3(url:any,basePath:any,title:any) {
   console.log('save data url='+url)
   console.log(this.uploadFs1.name3,this.uploadFs1.url3,this.uploadFs.createdAt);
   this.fs.collection(`${basePath}`).doc(`${title}`).update(this.uploadFs1);
+}
+
+//service used for uploading the logo
+
+pushUploadLogo(upload1: Upload,upload2:Upload,basePath:any,title:any) {
+  // this.storageRef = this.fstorage.ref(`${this.basePath}/${upload.file.name}`);
+  let uploadTask1: UploadTask = firebase.storage().ref(`${basePath}/${upload1.file.name}`).put(upload1.file);
+  let uploadTask2: UploadTask = firebase.storage().ref(`${basePath}/${upload2.file.name}`).put(upload2.file);
+  //let uploadTask3: UploadTask = firebase.storage().ref(`${basePath}/${upload3.file.name}`).put(upload3.file);
+  
+  //name of images
+  let name1:string=upload1.file.name;
+  let name2:string=upload2.file.name;
+  //let name3:string=upload3.file.name;
+
+  // uploadTask.snapshotChanges().pipe(finalize(()=>
+  // {
+  //   console.log("inside snapshot");
+
+    
+  //   // this.downloadUrl=this.storageRef.getDownloadURL();
+  //   console.log("name here="+name);
+  //   this.downloadUrl.subscribe(url=>{this.url=url});
+  //   // this.uploadFs={
+  //   //   name:name,
+  //   //   url:this.url,
+  //   //   createdAt:new Date().toString(),
+  //   // }
+  //  
+
+  // })).subscribe();
+
+  uploadTask1.then((snapshot)=>
+{
+    upload1.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+  upload1.name=upload1.file.name;
+  
+  firebase.storage().ref(`${basePath}/${upload1.file.name}`).getDownloadURL().then((url)=>{
+    this.urllogo1=url;
+    upload1.url=url;
+    this.uploadFs2.name1=name1;
+    this.uploadFs2.urllogo1=url;
+    this.uploadFs2.createdAt=new Date().toString();
+    
+  });
+})
+uploadTask2.then((snapshot)=>
+{
+    upload2.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+  upload2.name=upload2.file.name;
+  
+  firebase.storage().ref(`${basePath}/${upload2.file.name}`).getDownloadURL().then((url)=>{
+    this.urllogo2=url;
+    upload2.url=url;
+    this.uploadFs2.name2=name2;
+    this.uploadFs2.urllogo2=url;
+
+    this.uploadFs2.createdAt=new Date().toString();
+    console.log("url1="+this.uploadFs2.urllogo2+" // url2="+this.uploadFs2.urllogo2);
+    this.saveFileData2(url,basePath,title);
+  });
+})
+}
+
+saveFileData2(url:any,basePath:any,title:any) {
+console.log('save data url='+url)
+console.log(this.uploadFs2.name2,this.uploadFs2.urllogo2,this.uploadFs.createdAt);
+this.fs.collection(`${basePath}`).doc(`${title}`).update(this.uploadFs2);
 }
 }

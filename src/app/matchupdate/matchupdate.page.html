@@ -1,77 +1,95 @@
 <ion-header >
-    <ion-toolbar color="tertiary">
-      <ion-buttons>
-      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
-      <ion-back-button style="color:white;"></ion-back-button>
-      <ion-title id="title" style="color:white;">Match update</ion-title>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons>
+    <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+    <ion-back-button style="color:white;"></ion-back-button>
+    <ion-title id="title" style="color:white;">Match update</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
-    <ion-list *ngFor='let data of match'>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="4">
-              Match Title:
+  <ion-list *ngFor='let data of match'>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            Match Title:
+          </ion-col>
+          <ion-col size="9">
+              <ion-input type="text" class="m-style" [(ngModel)]="matchTitle"></ion-input>
             </ion-col>
-            <ion-col size="8">
-                <ion-input type="text" class="m-style" [(ngModel)]="matchTitle"></ion-input>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3">
+              Team1:
+            </ion-col>
+            <ion-col size="9">
+                <ion-input type="text" class="m-style" [(ngModel)]="matchTeam1"></ion-input>
               </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col size="4">
-                Team1:
+            <ion-col size="3">
+              Team1 players:
+            </ion-col>
+            <ion-col size="9">
+              <!-- <ion-input type="text" placeholder="Team1" class="m-style" [(ngModel)]="matchTeam1"></ion-input> -->
+              <ion-textarea type="text" class="p-style" [(ngModel)]="playerTeam1"></ion-textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="3">
+                Team2:
               </ion-col>
-              <ion-col size="8">
-                  <ion-input type="text" class="m-style" [(ngModel)]="matchTeam1"></ion-input>
+              <ion-col size="9">
+                  <ion-input type="text" class="m-style" [(ngModel)]="matchTeam2"></ion-input>
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="4">
-                  Team2:
+              <ion-col size="3">
+                Team2 players:
+              </ion-col>
+              <ion-col size="9">
+                <!-- <ion-input type="text" placeholder="Team1" class="m-style" [(ngModel)]="matchTeam1"></ion-input> -->
+                <ion-textarea type="text" class="p-style" [(ngModel)]="playerTeam2"></ion-textarea>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="3">
+                  score:
                 </ion-col>
-                <ion-col size="8">
-                    <ion-input type="text" class="m-style" [(ngModel)]="matchTeam2"></ion-input>
+                <ion-col size="9">
+                    <ion-input type="text" class="m-style" [(ngModel)]="matchScore"></ion-input>
                   </ion-col>
               </ion-row>
-              <ion-row>
-                  <ion-col size="4">
-                    score:
-                  </ion-col>
-                  <ion-col size="8">
-                      <ion-input type="text" class="m-style" [(ngModel)]="matchScore"></ion-input>
-                    </ion-col>
-                </ion-row>
-          <ion-row>
-            <ion-col size="4">
-              <ion-label>Venue:</ion-label>
+        <ion-row>
+          <ion-col size="3">
+            <ion-label>Venue:</ion-label>
+          </ion-col>
+          <ion-col size="9">
+              <ion-input type="text" class="m-style" [(ngModel)]="matchVenue"></ion-input>
             </ion-col>
-            <ion-col size="8">
-                <ion-input type="text" class="m-style" [(ngModel)]="matchVenue"></ion-input>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="4">
-              <ion-label>Time:</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3">
+            <ion-label>Time:</ion-label>
+          </ion-col>
+          <ion-col size="9">
+              <ion-input type="text" class="m-style" [(ngModel)]="matchTime"></ion-input>
             </ion-col>
-            <ion-col size="8">
-                <ion-input type="text" class="m-style" [(ngModel)]="matchTime"></ion-input>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="4">
-              <ion-label>Date:</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3">
+            <ion-label>Date:</ion-label>
+          </ion-col>
+          <ion-col size="9">
+              <ion-input type="text" button=true, value={{Date}} (click)="pickDate()" class="m-style" [(ngModel)]="matchDate"></ion-input>
             </ion-col>
-            <ion-col size="8">
-                <ion-input type="text" button=true, value={{Date}} (click)="pickDate()" class="m-style" [(ngModel)]="matchDate"></ion-input>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-button (click)="goUpdate()" color="secondary">update match</ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="goUpdate()" color="secondary">update match</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
 </ion-content>

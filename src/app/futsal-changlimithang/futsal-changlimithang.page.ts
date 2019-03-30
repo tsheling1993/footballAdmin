@@ -43,13 +43,86 @@ export class FutsalChanglimithangPage implements OnInit {
     this.loadFromFirestoreFutsalSaturday();
     this.loadFromFirestoreFutsalSunday();
     this.loadPriceDetail();
+
+    this.getDay();
   }
 
   ngOnInit() {
   }
-  
+
   openMenu(){
     this.menu.toggle('myMenu');
+  }
+
+  day: string;
+
+  monColor: string = "green";
+  tueColor: string = "green";
+  wedColor: string = "green";
+  thuColor: string = "green";
+  friColor: string = "green";
+  satColor: string = "green";
+  sunColor: string = "green";
+
+  //to show date on current day
+  monDate: boolean = false;
+  tueDate: boolean = false;
+  wedDate: boolean = false;
+  thuDate: boolean = false;
+  friDate: boolean = false;
+  satDate: boolean = false;
+  sunDate: boolean = false;
+
+  getDay(){
+    let currentDate = new Date();
+    let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    this.day = weekdays[currentDate.getDay()];
+    console.log("Day: "+this.day);
+
+    //this.day = "sunday"
+    //change color of dat text
+    if(this.day == "monday"){
+      this.monDate = true;
+    }
+    else if(this.day == "tuesday"){
+      this.monColor = "blue";
+      this.tueDate = true;
+    }
+    else if(this.day == "wednesday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedDate = true;
+    }
+    else if(this.day == "thursday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuDate = true;
+    }
+    else if(this.day == "friday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friDate = true;
+    }
+    else if(this.day == "saturday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satDate = true;
+    }
+    else if(this.day == "sunday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satColor = "blue";
+      this.sunDate = true;
+    }
   }
 
   showChangFutsalMon(){

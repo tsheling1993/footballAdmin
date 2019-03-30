@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController, MenuController } from '@ionic/angular';
+import { AlertController, NavController, MenuController, ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -8,6 +8,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./footbal-futsal-admin.page.scss'],
 })
 export class FootbalFutsalAdminPage implements OnInit {
+
+  public date: string = new Date().toISOString();
 
   time_all: boolean = true;  
   time_8to9am: boolean;
@@ -149,7 +151,9 @@ export class FootbalFutsalAdminPage implements OnInit {
   constructor(
     private fs : AngularFirestore,
     private menu: MenuController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private navCtl : NavController,
+    public toastController: ToastController
   ) { 
     this.loadFromFirestoreMonday();
     this.loadFromFirestoreTuesday();
@@ -158,12 +162,85 @@ export class FootbalFutsalAdminPage implements OnInit {
     this.loadFromFirestoreFriday();
     this.loadFromFirestoreSaturday();
     this.loadFromFirestoreSunday();
+
+    this.getDay();
   }
 
   ngOnInit() {
   }
   openMenu(){
     this.menu.toggle('myMenu');
+  }
+
+  today: string;
+
+  monColor: string = "green";
+  tueColor: string = "green";
+  wedColor: string = "green";
+  thuColor: string = "green";
+  friColor: string = "green";
+  satColor: string = "green";
+  sunColor: string = "green";
+
+  //to show date on current day
+  monDate: boolean = false;
+  tueDate: boolean = false;
+  wedDate: boolean = false;
+  thuDate: boolean = false;
+  friDate: boolean = false;
+  satDate: boolean = false;
+  sunDate: boolean = false;
+
+  getDay(){
+    let currentDate = new Date();
+    let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    this.today = weekdays[currentDate.getDay()];
+    console.log("Day: "+this.today);
+
+    //this.today = "sunday"
+    //change color of dat text
+    if(this.today == "monday"){
+      this.monDate = true;
+    }
+    else if(this.today == "tuesday"){
+      this.monColor = "blue";
+      this.tueDate = true;
+    }
+    else if(this.today == "wednesday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedDate = true;
+    }
+    else if(this.today == "thursday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuDate = true;
+    }
+    else if(this.today == "friday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friDate = true;
+    }
+    else if(this.today == "saturday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satDate = true;
+    }
+    else if(this.today == "sunday"){
+      this.monColor = "blue";
+      this.tueColor = "blue";
+      this.wedColor = "blue";
+      this.thuColor = "blue";
+      this.friColor = "blue";
+      this.satColor = "blue";
+      this.sunDate = true;
+    }
   }
 
   goDay(day:any){
@@ -1020,44 +1097,54 @@ export class FootbalFutsalAdminPage implements OnInit {
     }
 
     loadFromFirestoreMonday(){
-      this.fs.collection('/football').doc('ChanglimithangFutsal').collection('/monday').get().subscribe(res=>  
-        {
-          res.forEach((doc:any)=>
-        {
-          this.changFutsalMonData.push({
-            time_8to9am:doc.data().time_8to9am,
-            time_9to10am:doc.data().time_9to10am,
-            time_10to11am : doc.data().time_10to11pm,
-            time_11to12pm :doc.data().time_11to12pm,
-            time_12to1pm : doc.data().time_12to1pm,
-            time_1to2pm : doc.data().time_1to2pm,
-            time_2to3pm : doc.data().time_2to3pm,
-            time_3to4pm : doc.data().time_3to4pm,
-            time_4to5pm : doc.data().time_4to5pm,
-            time_5to6pm : doc.data().time_5to6pm,
-            time_6to7pm : doc.data().time_6to7pm,
-            time_7to8pm : doc.data().time_7to8pm,
-            time_8to9pm : doc.data().time_8to9pm,
-            time_9to10pm : doc.data().time_9to10pm
+        this.fs.collection('/football').doc('ChanglimithangFutsal').collection('/monday').get().subscribe(res=>  
+          {
+            res.forEach((doc:any)=>
+          {
+
+            this.changFutsalMonData.push({
+              time_8to9am:doc.data().time_8to9am,
+              time_9to10am:doc.data().time_9to10am,
+              time_10to11am : doc.data().time_10to11pm,
+              time_11to12pm :doc.data().time_11to12pm,
+              time_12to1pm : doc.data().time_12to1pm,
+              time_1to2pm : doc.data().time_1to2pm,
+              time_2to3pm : doc.data().time_2to3pm,
+              time_3to4pm : doc.data().time_3to4pm,
+              time_4to5pm : doc.data().time_4to5pm,
+              time_5to6pm : doc.data().time_5to6pm,
+              time_6to7pm : doc.data().time_6to7pm,
+              time_7to8pm : doc.data().time_7to8pm,
+              time_8to9pm : doc.data().time_8to9pm,
+              time_9to10pm : doc.data().time_9to10pm
+            })
+            this.mon_8to9am = doc.data().time_8to9am;
+            this.mon_9to10am = doc.data().time_9to10am;
+            this.mon_10to11am = doc.data().time_10to11am;
+            this.mon_11to12pm = doc.data().time_11to12pm;
+            this.mon_12to1pm = doc.data().time_12to1pm;
+            this.mon_1to2pm = doc.data().time_1to2pm;
+            this.mon_2to3pm = doc.data().time_2to3pm;
+            this.mon_3to4pm = doc.data().time_3to4pm;
+            this.mon_4to5pm = doc.data().time_4to5pm;
+            this.mon_5to6pm = doc.data().time_5to6pm;
+            this.mon_6to7pm = doc.data().time_6to7pm;
+            this.mon_7to8pm = doc.data().time_7to8pm;
+            this.mon_8to9pm = doc.data().time_8to9pm;
+            this.mon_9to10pm = doc.data().time_9to10pm;
+          });
           })
-          this.mon_8to9am = doc.data().time_8to9am;
-          this.mon_9to10am = doc.data().time_9to10am;
-          this.mon_10to11am = doc.data().time_10to11am;
-          this.mon_11to12pm = doc.data().time_11to12pm;
-          this.mon_12to1pm = doc.data().time_12to1pm;
-          this.mon_1to2pm = doc.data().time_1to2pm;
-          this.mon_2to3pm = doc.data().time_2to3pm;
-          this.mon_3to4pm = doc.data().time_3to4pm;
-          this.mon_4to5pm = doc.data().time_4to5pm;
-          this.mon_5to6pm = doc.data().time_5to6pm;
-          this.mon_6to7pm = doc.data().time_6to7pm;
-          this.mon_7to8pm = doc.data().time_7to8pm;
-          this.mon_8to9pm = doc.data().time_8to9pm;
-          this.mon_9to10pm = doc.data().time_9to10pm;
-        });
-        })
-        console.log(this.changFutsalMonData);
+          setTimeout(() => {
+            console.log("value="+this.mon_10to11am);      
+            if(this.mon_10to11am == undefined){
+              console.log("No Internet Connection");
+              this.presentToast();
+              this.navCtl.navigateForward('/footballAdmin');
+            }      
+        }, 4000);
+      
     }
+    
 
     loadFromFirestoreTuesday(){
       this.fs.collection('/football').doc('ChanglimithangFutsal').collection('/tuesday').get().subscribe(res=>  
@@ -1297,5 +1384,13 @@ export class FootbalFutsalAdminPage implements OnInit {
         });
         })
         console.log(this.changFutsalSunData);
+    }
+
+    async presentToast() {
+      const toast = await this.toastController.create({
+        message: 'No Internet Connection or is too Weak!',
+        duration: 2000
+      });
+      toast.present();
     }
 }

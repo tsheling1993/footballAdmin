@@ -3,13 +3,17 @@
       <ion-buttons>
         <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
         <ion-back-button style="color:rgb(255, 255, 255);"></ion-back-button>
-        <ion-title style="color:white;"><b>Futsal Admin</b></ion-title>
+        <ion-title style="color:white;">Futsal Admin</ion-title>
       </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <br><ion-button expand="full" color="primary" (click)="goDay('/monday')">Monday</ion-button>
+  <!-- <br><ion-button expand="full" color="primary" (click)="goDay('/monday')">Monday</ion-button> -->
+  <br><ion-item button="true" (click)="goDay('/monday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="monColor">Monday</div>  
+    <ion-datetime *ngIf="monDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>
       <div *ngIf="day=='/monday'">
         <ion-list>
           <ion-item>
@@ -78,7 +82,11 @@
         </ion-list>
     </div>
 
-  <ion-button expand="full" color="primary" (click)="goDay('/tuesday')">Tuesday</ion-button>
+  <!-- <ion-button expand="full" color="primary" (click)="goDay('/tuesday')">Tuesday</ion-button> -->
+  <ion-item button="true" (click)="goDay('/tuesday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="tueColor">Tuesday</div>  
+    <ion-datetime *ngIf="tueDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>
     <div *ngIf="day=='/tuesday'">
       <ion-list>
           <ion-item>
@@ -147,8 +155,12 @@
         </ion-list>  
     </div>
   
-   <ion-button expand="full" color="primary" (click)="goDay('/wednesday')">Wednesday</ion-button>
-      <div *ngIf="day=='/wednesday'">
+   <!-- <ion-button expand="full" color="primary" (click)="goDay('/wednesday')">Wednesday</ion-button> -->
+   <ion-item button="true" (click)="goDay('/wednesday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="wedColor">Wednesday</div>  
+    <ion-datetime *ngIf="wedDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>   
+   <div *ngIf="day=='/wednesday'">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -216,8 +228,12 @@
         </ion-list>
     </div>
   
-    <ion-button expand="full" color="primary" (click)="goDay('/thursday')">Thursday</ion-button>
-      <div *ngIf="day=='/thursday'">
+    <!-- <ion-button expand="full" color="primary" (click)="goDay('/thursday')">Thursday</ion-button> -->
+    <ion-item button="true" (click)="goDay('/thursday')">
+      <div style="width: 55%; text-align: center;" [(ngClass)]="thuColor">Thursday</div>  
+      <ion-datetime *ngIf="thuDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>             
+    </ion-item>   
+    <div *ngIf="day=='/thursday'">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -285,8 +301,12 @@
         </ion-list>
     </div> 
 
-      <ion-button expand="full" color="primary" (click)="goDay('/friday')">Friday</ion-button>
-        <div *ngIf="day=='/friday'">
+      <!-- <ion-button expand="full" color="primary" (click)="goDay('/friday')">Friday</ion-button> -->
+      <ion-item button="true" (click)="goDay('/friday')">
+        <div style="width: 55%; text-align: center;" [(ngClass)]="friColor">Friday</div>  
+        <ion-datetime *ngIf="friDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>               
+      </ion-item>   
+      <div *ngIf="day=='/friday'">
           <ion-list>
             <ion-item>
               <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -354,8 +374,12 @@
           </ion-list>
       </div>  
 
-    <ion-button expand="full" color="primary" (click)="goDay('/saturday')">Saturday</ion-button>
-      <div *ngIf="day=='/saturday'">
+    <!-- <ion-button expand="full" color="primary" (click)="goDay('/saturday')">Saturday</ion-button> -->
+    <ion-item button="true" (click)="goDay('/saturday')">
+      <div style="width: 55%; text-align: center;" [(ngClass)]="satColor">Saturday</div>  
+      <ion-datetime *ngIf="satDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>             
+    </ion-item>    
+    <div *ngIf="day=='/saturday'">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -423,8 +447,12 @@
         </ion-list>
     </div>    
 
-    <ion-button expand="full" color="primary" (click)="goDay('/sunday')">Sunday</ion-button>
-      <div *ngIf="day=='/sunday'">
+    <!-- <ion-button expand="full" color="primary" (click)="goDay('/sunday')">Sunday</ion-button> -->
+    <ion-item button="true" (click)="goDay('/sunday')">
+      <div style="width: 55%; text-align: center;" [(ngClass)]="sunColor">Sunday</div>  
+      <ion-datetime *ngIf="sunDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>             
+    </ion-item>    
+    <div *ngIf="day=='/sunday'">
         <ion-list>
           <ion-item>
             <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
@@ -491,4 +519,20 @@
           </ion-item>
         </ion-list>
     </div> 
+
+    <ion-grid>
+      <ion-row>
+      <div style="width:100%; text-align: center">Color Representation</div>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="3"><ion-icon name="square" class="green" size="small"></ion-icon></ion-col>
+        <ion-col size="5">This Week</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="3"><ion-icon name="square" class="blue" size="small"></ion-icon></ion-col>
+        <ion-col size="5">Next Week</ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

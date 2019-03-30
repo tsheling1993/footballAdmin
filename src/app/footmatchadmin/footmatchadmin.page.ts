@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AlertController, NavController, MenuController } from '@ionic/angular';
+import { AlertController, NavController, MenuController, LoadingController } from '@ionic/angular';
 import { Upload } from '../../models/upload/upload';
 import * as _ from 'lodash';
 
@@ -30,8 +30,11 @@ export class FootmatchadminPage implements OnInit {
   constructor(private fs : AngularFirestore,
     private altCtl : AlertController,
     private navCtl : NavController,
-    private menu : MenuController)
+    private menu : MenuController,
+    public loadingController: LoadingController,
+    )
      { 
+      this.presentLoading();
       this.fs.collection('/t_football_match',ref=>ref.orderBy('matchdate', 'desc')).get().subscribe(res=>
         {
           
@@ -48,6 +51,10 @@ export class FootmatchadminPage implements OnInit {
           })
           // this.movieList.push(this.movie);
           console.log("match data:"+this.match);
+          if(this.match){
+            console.log("up");
+            this.loadingController.dismiss();      
+          }
         });
         })
     }
@@ -70,7 +77,16 @@ export class FootmatchadminPage implements OnInit {
     });
     alert.present();
   }
-  goDelete(matchtitle:any){
+  goDelete(matchtitle:any, matchdate: any, matchtime: any){
+    this.presentAlertConfirm(matchtitle, matchdate, matchtime);
+  }
+  //for updating the item
+  goEdit(matchtitle : any){
+    console.log(matchtitle);
+    this.navCtl.navigateForward('/matchupdate/'+matchtitle);
+  }
+
+  deleteSure(matchtitle:any){
     let basePath:string="/t_football_match";
     this.fs.collection(`${basePath}`).doc(`${matchtitle}`).delete().then(data=>
       {
@@ -79,9 +95,38 @@ export class FootmatchadminPage implements OnInit {
       }
       )
   }
-  //for updating the item
-  goEdit(matchtitle : any){
-    console.log(matchtitle);
-    this.navCtl.navigateForward('/matchupdate/'+matchtitle);
+
+  async presentAlertConfirm(matchtitle:any, matchdate: any, matchtime: any) {
+    const alert = await this.altCtl.create({
+      header: 'Confirm!',
+      message: 'Are you sure you want to delete?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.deleteSure(matchtitle+matchdate+matchtime)
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+     // message: 'Hellooo',
+      duration: 15000,
+      spinner: 'crescent',
+      cssClass: 'loaderClass'
+    });
+    return await loading.present();
   }
 }

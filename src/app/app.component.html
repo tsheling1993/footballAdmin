@@ -11,21 +11,24 @@
               
               <ion-content  style="--background: transparent;">
                 <ion-list button="true">
-                  <ion-item (click)="goHome()">
-                    Home      
-                  </ion-item>
-                  <ion-item (click)="goAboutUs()">
+                    <ion-item (click)="goHome()">
+                        <ion-icon name="home"></ion-icon> &nbsp;&nbsp; Home
+                      </ion-item>
+                  <!-- <ion-item (click)="goAboutUs()">
                     About us
-                  </ion-item>
+                  </ion-item> -->
                   <ion-item (click)="goContact()">
-                    Contact
+                      <ion-icon name="call"></ion-icon> &nbsp;&nbsp; Contact
                   </ion-item>
+                  <ion-item (click)="goHelp()">
+                      <ion-icon name="help"></ion-icon> &nbsp;&nbsp; Help
+                    </ion-item>
                   <ion-item (click)="goRateus()">
-                    Rate us
+                      <ion-icon name="star-half"></ion-icon> &nbsp;&nbsp; Rate us
                     </ion-item>
-                  <ion-item (click)="alertAdminLogin()">
+                  <!-- <ion-item (click)="alertAdminLogin()">
                       Admin Login
-                    </ion-item>
+                    </ion-item> -->
                 </ion-list>
               </ion-content>
         </ion-menu>

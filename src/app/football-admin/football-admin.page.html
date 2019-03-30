@@ -3,7 +3,7 @@
     <ion-buttons>
         <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
       <ion-back-button style="color:rgb(255, 255, 255);"></ion-back-button>
-      <ion-title style="color:white;"><b>Football Admin</b></ion-title>
+      <ion-title style="color:white;">Football Admin</ion-title>
     </ion-buttons>
 </ion-toolbar>
 </ion-header>
@@ -18,19 +18,22 @@
     <div>
         <ion-button expand="full" color="primary" (click)="gomatch()">Football match</ion-button>
     </div> -->
-
+    <br><br><br><br><br>
     <ion-list>
-        <ion-item class="contact-special" button="true" (click)="updateStatus()">
-          <p>View</p>
+        <ion-item class="contact-special" button="true" (click)="viewGround()">
+          <div style="width: 100%; text-align: center;">VIEW</div>
         </ion-item>
         <ion-item class="contact-special" button="true" (click)="goAdminFullGround()">
-          <p>Football Full Ground</p>
+          <div style="width: 100%; text-align: center;">Update Football Full Ground</div>
         </ion-item>
         <ion-item class="contact-special" button="true" (click)="goAdminFutsal()">
-          <p>Futsal Ground</p>
+          <div style="width: 100%; text-align: center;">Update Futsal Ground</div>
         </ion-item> 
-        <ion-item class="contact-special" button="true" (click)="gomatch()">
-            <p>Football match</p>
-          </ion-item>
+        <ion-item class="contact-special" button="true" (click)="matchupdate()">
+          <div style="width: 100%; text-align: center;">Update Match</div>
+        </ion-item>
+        <ion-item class="contact-special" button="true" (click)="goAdminFutsal()">
+          <div style="width: 100%; text-align: center;">Match Table score</div>
+        </ion-item>
     </ion-list>
 </ion-content>

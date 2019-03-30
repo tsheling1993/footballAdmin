@@ -71,8 +71,12 @@ export class AppComponent {
     this.menu.toggle('myMenu');
    this.navCtrl.navigateForward('/aboutus');
   }
+  goHelp(){
+    this.menu.toggle('myMenu');
+   this.navCtrl.navigateForward('/help');
+  }
   goHome(){
     this.menu.toggle('myMenu');
-   this.navCtrl.navigateForward('/home');
+   this.navCtrl.navigateForward('/footballAdmin');
   }
 }

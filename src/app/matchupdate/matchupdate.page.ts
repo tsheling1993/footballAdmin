@@ -22,6 +22,9 @@ export class MatchupdatePage implements OnInit {
   matchTeam1 : any;
   matchTeam2 : any;
   matchScore : any;
+  playerTeam1 : any;
+  playerTeam2 : any;
+
   date : any;
   matchData:any[]=[];
   title:any;
@@ -56,20 +59,23 @@ export class MatchupdatePage implements OnInit {
        this.match.push({
          matchtitle:res.data().matchtitle,
          matchteam1:res.data().matchteam1,
+         playerteam1:res.data().playerteam1,
          matchteam2:res.data().matchteam2,
+         playerteam2:res.data().playerteam2,
          matchvenue:res.data().matchvenue,
          matchsore:res.data().matchsore,
          matchtime:res.data().matchtime,
-         matchdate:res.data().matchdate
+         matchdate:res.data().matchdate,
        })
        this.matchTitle = res.data().matchtitle;
        this.matchTeam1 = res.data().matchteam1;
+       this.playerTeam1 = res.data().playerteam1;
        this.matchTeam2 = res.data().matchteam2;
+       this.playerTeam2 = res.data().playerteam2; 
        this.matchVenue = res.data().matchvenue;
        this.matchScore = res.data().matchsore;
        this.matchTime = res.data().matchtime;
-       this.matchDate = res.data().matchdate;       
-      
+       this.matchDate = res.data().matchdate; 
        console.log(this.match);;
      })
  }
@@ -85,7 +91,9 @@ export class MatchupdatePage implements OnInit {
      {
      matchtitle : this.matchTitle,
      matchteam1 : this.matchTeam1,
+     playerteam1 : this.playerTeam1,
      matchteam2 : this.matchTeam2,
+     playerteam2 : this.playerTeam2,
      matchvenue : this.matchVenue,
      matchsore : this.matchScore,
      matchtime : this.matchTime,
@@ -95,7 +103,7 @@ export class MatchupdatePage implements OnInit {
      {
        console.log("reach here with data: "+data);
          this.alert("For Information","update successful");
-         this.navCtl.navigateForward('/football');
+         this.navCtl.navigateForward('/footballAdmin');
        console.log(data);
        //this.uploadServ.pushUpload1(this.currentUpload,basePath,this.matchTitle);
      }
@@ -117,7 +125,8 @@ export class MatchupdatePage implements OnInit {
    this.datePicker.show({
      date: new Date(),
      mode: 'date',
-     androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+    //  androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+    androidTheme : this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
    }).then(
      date =>{
        let dateArray=date.toString().split(' ');
